@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import classes from './homepage.module.scss';
 
-export const Homepage = (props) => {
+const Homepage = (props) => {
     <div>
         Hello from Homepage
     </div>
@@ -12,3 +12,5 @@ export const Homepage = (props) => {
 Homepage.propTypes = {
     message: PropTypes.string.isRequired,
 }
+
+export default Homepage

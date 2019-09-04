@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import classes from './pdp.module.scss';
 
-export const Pdp = (props) => {
+const Pdp = (props) => {
     <div>
         Hello from Pdp
     </div>
@@ -12,3 +12,5 @@ export const Pdp = (props) => {
 Pdp.propTypes = {
     message: PropTypes.string.isRequired,
 }
+
+export default Pdp

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Homepage from './homepage/homepage.component';
-import Events from './events/events.component';
-import Pdp from './pdp/pdp.component';
+import {Homepage} from './homepage';
+import {Events} from './events/events';
+import {Pdp} from './pdp';
 
 function App() {
     return (

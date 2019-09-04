@@ -12,3 +12,5 @@ export const Events = (props) => {
 Events.propTypes = {
   message: PropTypes.string.isRequired,
 }
+
+export default Events
