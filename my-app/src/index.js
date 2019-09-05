@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Events } from './pages/events';
 import { Homepage } from './pages/homepage';
-import { Pdp } from './pages/pdp'
+import { Pdp } from './pages/pdp';
 // import { MainPage } from './pages';
 
 function AppRouter(){
@@ -34,3 +34,4 @@ function AppRouter(){
 }
 ReactDOM.render(<AppRouter />,document.querySelector('#root')
 )
+
