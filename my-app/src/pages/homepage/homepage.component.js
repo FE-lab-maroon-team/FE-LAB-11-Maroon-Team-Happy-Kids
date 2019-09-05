@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import classes from './homepage.module.scss';
 
-const Homepage = (props) => {
+export const Homepage = (props) => {
+    return(
     <div>
         Hello from Homepage
     </div>
+    )
 }
 
 Homepage.propTypes = {
     message: PropTypes.string.isRequired,
 }
-
-export default Homepage
