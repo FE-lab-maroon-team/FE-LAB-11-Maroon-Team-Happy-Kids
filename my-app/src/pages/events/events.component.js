@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-export default class Event extends Component {
-  render () {
-    return (
-      <div>Hello world!</div>
-    )
-  }
+import classes from './events.module.scss';
+
+export const Events = (props) => {
+  <div>
+      Hello from Events
+  </div>
 }
+
+Events.propTypes = {
+  message: PropTypes.string.isRequired,
+}
+
+export default Events
