@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Events } from './pages/events';
 import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
