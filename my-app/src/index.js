@@ -9,12 +9,11 @@ import { Button } from './public-components/button';
 // import { MainPage } from './pages';
 
 function AppRouter(){
-
     return (
         <>
-        <Header />
         <Router>
-            <div>
+            <div className="container">
+            <Header />
                 <nav>
                     <ul>
                         <li>

@@ -1,12 +1,11 @@
 import React from 'react';
 import '../header/header.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Homepage } from '../../pages/homepage';
+import { Link } from 'react-router-dom';
+
 
 export const Header = () =>{
 
     return(
-         <Router>
         <div className="header">
             <Link to='/'><div className="header_logo"></div></Link>
             <nav className="header_menu">
@@ -16,7 +15,5 @@ export const Header = () =>{
                 </ul>
             </nav>
         </div>
-        <Route path="/" exact component ={Homepage}/>
-        </Router>
     )
 }

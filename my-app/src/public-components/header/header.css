@@ -1,7 +1,7 @@
 
 .header{
     width:100%;
-    max-width: 1200px;
+    max-width: 1400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +15,8 @@
 .header_logo{
     width:170px;
     height:70px;
-    background-image: url('../../img/logo.png')
+    background-image: url('../../img/logo.png');
+    margin-left:20px;
 }
 .header_menu__item > li {
     color: black;
