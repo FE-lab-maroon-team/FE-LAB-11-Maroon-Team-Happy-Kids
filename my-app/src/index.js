@@ -4,13 +4,16 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Events } from './pages/events';
 import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
+import { Header } from './public-components/header'
+import { Button } from './public-components/button';
 // import { MainPage } from './pages';
 
 function AppRouter(){
-
     return (
+        <>
         <Router>
-            <div>
+            <div className="container">
+            <Header />
                 <nav>
                     <ul>
                         <li>
@@ -20,7 +23,7 @@ function AppRouter(){
                             <Link to='/events'>Events</Link>
                         </li>
                         <li>
-                            <Link to='/pdp'>Home</Link>
+                            <Link to='/pdp'>Pdp</Link>
                         </li>
                     </ul>
                 </nav>
@@ -30,6 +33,7 @@ function AppRouter(){
                 <Route path="/pdp/" exact component ={Pdp}/>
             </div>
         </Router>
+        </>
     )
 }
 ReactDOM.render(<AppRouter />,document.querySelector('#root')
