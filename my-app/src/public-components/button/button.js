@@ -2,7 +2,10 @@ import React from 'react'
 import './button.css';
 
 export const Button = (props) =>{
+    function handleClick(props) {
+        console.log('The link was clicked.');
+      }
     return(
-        <button value="submit" className="button" onClick="">{props.text}</button>
+        <button  className="button" onClick={handleClick}>{props.text}</button>
     )
 }
