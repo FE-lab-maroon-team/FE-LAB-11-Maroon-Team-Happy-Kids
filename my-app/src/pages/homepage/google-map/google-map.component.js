@@ -5,11 +5,8 @@ export class GoogleMap extends React.Component{
     get googleMapDiv(){
         return document.getElementById('google-map');
     }
-
-    googleMapRef = React.createRef();
-
     createGoogleMap = () =>{
-        let map = new window.google.maps.Map(this.googleMapRef.current, {
+        let map = new window.google.maps.Map(document.getElementById('google-map'), {
             zoom: 14,
             center: {
                 lat: 49.8397,
@@ -17,7 +14,14 @@ export class GoogleMap extends React.Component{
             },
             desabledDefaultUI: true,
         })
-        console.log(map);
+        new window.google.maps.Marker({
+            position: {
+                lat: 49.8397,
+                lng: 24.0297,
+            },
+            map: map,
+            title: 'Hello World'
+        })
     }
     componentDidMount(){
         const googleMapScript = document.createElement('script');
@@ -27,18 +31,7 @@ export class GoogleMap extends React.Component{
 
         googleMapScript.addEventListener('load', () => {
             this.googleMap = this.createGoogleMap();
-            this.marker = this.createMarker();
         })
-    }
-    createMarker = () => {
-        new window.google.maps.Map({
-            position: {
-                lat: 49.8397,
-                lng: 24.0297,
-            },
-            map: this.googleMap,
-        })
-        // console.log(markerMap);
     }
     render(){
         return(
@@ -46,7 +39,7 @@ export class GoogleMap extends React.Component{
                 <div
                 id="google-map"
                 ref={this.googleMapRef}
-                style={{width: '300px', height: '300px'}}
+                className={classes.google_map}
                 />
             </>
         )
