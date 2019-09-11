@@ -12,7 +12,7 @@ export function Textlink (props) {
   return (  
     <div>
       <span>
-        <Link to='/homepage'>Домашня</Link>
+        <Link to={url: props}>Домашня</Link>
           <br></br>
         <Link to='/events'>Події</Link>
       </span>        

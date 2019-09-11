@@ -6,9 +6,6 @@ import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
 import { Footer } from './public-components/footer';
 
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
 // import { MainPage } from './pages';
 
 
@@ -16,10 +13,11 @@ import "mdbreact/dist/css/mdb.css";
 
 
 function AppRouter(){
-
     return (
+        <>
         <Router>
-            <div>
+            <div className="container">
+            <Header />
                 <nav>
                     <ul>
                         <li>
@@ -29,7 +27,7 @@ function AppRouter(){
                             <Link to='/events'>Events</Link>
                         </li>
                         <li>
-                            <Link to='/pdp'>Home</Link>
+                            <Link to='/pdp'>Pdp</Link>
                         </li>
                     </ul>
                 </nav>
@@ -44,26 +42,11 @@ function AppRouter(){
             </div>
             <Footer></Footer>
         </Router>
-         
+        </>
     )
 }
 
-function Child({ match }) {
-    return (
-      <div>
-        <h3>{match.params.id}</h3>
-      </div>
-    );
-}
 
-
-function ComponentWithRegex({ match }) {
-    return (
-      <div>
-        <h3>Only asc/desc are allowed: {match.params.direction}</h3>
-      </div>
-    );
-  }
 
 
 ReactDOM.render(<AppRouter />,document.querySelector('#root')
