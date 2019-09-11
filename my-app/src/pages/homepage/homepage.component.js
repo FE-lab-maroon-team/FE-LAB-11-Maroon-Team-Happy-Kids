@@ -5,9 +5,14 @@ import styles from './homepage.module.scss';
 
 export const Homepage = (props) => {
     return (
+        <>
+        <div>
+            Homepage content...
+        </div>
         <div>
             <GoogleMap />
         </div>
+        </>
     )
 }
 
