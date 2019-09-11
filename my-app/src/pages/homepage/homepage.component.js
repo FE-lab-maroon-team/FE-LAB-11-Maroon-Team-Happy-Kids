@@ -11,6 +11,3 @@ export const Homepage = (props) => {
     )
 }
 
-Homepage.propTypes = {
-    message: PropTypes.string.isRequired,
-}
