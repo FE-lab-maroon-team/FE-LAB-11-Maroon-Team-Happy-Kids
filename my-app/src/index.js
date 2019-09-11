@@ -13,7 +13,6 @@ function AppRouter(){
     return (
         <>
         <Header />
-        <Button text="Button"/>
         <Router>
             <div>
                 <nav>
