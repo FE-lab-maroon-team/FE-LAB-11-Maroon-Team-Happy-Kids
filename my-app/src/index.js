@@ -6,7 +6,6 @@ import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
 import { Header } from './public-components/header'
 import { Button } from './public-components/button';
-// import { MainPage } from './pages';
 
 function AppRouter(){
     return (

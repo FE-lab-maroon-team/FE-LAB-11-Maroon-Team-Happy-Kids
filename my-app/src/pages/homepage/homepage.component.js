@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GoogleMap } from './google-map';
-import styles from './homepage.module.scss';
+import classes from './homepage.module.scss';
 
 export const Homepage = (props) => {
     return (
-        <div>
+        <div className={classes.container_google_maps}>
             <GoogleMap />
         </div>
     )
 }
 
-Homepage.propTypes = {
-    message: PropTypes.string.isRequired,
-}
