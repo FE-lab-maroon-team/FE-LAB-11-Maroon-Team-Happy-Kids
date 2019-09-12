@@ -6,12 +6,13 @@ import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
 import { Header } from './public-components/header'
 import { Button } from './public-components/button';
+import classes from './index.scss';
 
 function AppRouter(){
     return (
         <>
         <Router>
-            <div className="container">
+            <div className={classes.container}>
             <Header />
                 <nav>
                     <ul>
