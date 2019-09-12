@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FamilyImage from '../../../assets/images/children-group.jpg';
+import CharityImage from '../../../assets/images/charity.jpg';
 import styles from './description.module.scss';
 
 class Description extends Component{
@@ -20,6 +21,27 @@ class Description extends Component{
                         узгодьте дату свого можливого появи у нас. Також ми можемо проконсультувати по документам, 
                         які можуть знадобитися і іншим нюансам. Телефонуйте, приходьте, ми вас дуже чекаємо!
                         </p>
+                    </div>
+                </div>
+                <div className={styles.charityBlock}>
+                        <div className={styles.charityDescription}>
+                            <div>
+                                <h2>
+                                    Для чого була створена ця сторінка?
+                                </h2>
+                                <p>
+                                    За допомогою цього вебсайту волонтери і всі бажаючі допомогти можуть 
+                                    надіслати дітям із дитячих будинків подарунки на 
+                                    Новий Рік, Святого Миколая та інші свята. 
+                                    Порадувати малюків може кожен бажаючий. 
+                                    Якщо в тебе є бажання і можливість допомогти, тоді 
+                                    тобі треба лише обрати дитину, для якої збираєшся надіслати подарунок, 
+                                    подивитись у список її побажань і відправити за вказаною адресою.
+                            </p>
+                            </div>
+                        </div>
+                    <div className={styles.charityImage}>
+                        <img src={CharityImage} alt='charity box'></img>
                     </div>
                 </div>
             </div>
