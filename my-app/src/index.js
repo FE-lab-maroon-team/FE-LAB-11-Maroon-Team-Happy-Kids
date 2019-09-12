@@ -4,12 +4,15 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Events } from './pages/events';
 import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
+import { Header } from './public-components/header'
+import { Button } from './public-components/button';
 
 function AppRouter(){
-
     return (
+        <>
         <Router>
-            <div>
+            <div className="container">
+            <Header />
                 <nav>
                     <ul>
                         <li>
@@ -29,6 +32,7 @@ function AppRouter(){
                 <Route path="/pdp/" exact component ={Pdp}/>
             </div>
         </Router>
+        </>
     )
 }
 ReactDOM.render(<AppRouter />,document.querySelector('#root')

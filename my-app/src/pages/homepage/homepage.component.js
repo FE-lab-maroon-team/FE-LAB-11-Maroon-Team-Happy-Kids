@@ -5,7 +5,7 @@ import classes from './homepage.module.scss';
 
 export const Homepage = (props) => {
     return (
-        <div className={classes.container} >
+        <div className={classes.container_google_maps}>
             <GoogleMap />
         </div>
     )
