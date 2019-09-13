@@ -41,8 +41,6 @@ function AppRouter(){
 }
 
 
-
-
 ReactDOM.render(<AppRouter />,document.querySelector('#root')
 )
 
