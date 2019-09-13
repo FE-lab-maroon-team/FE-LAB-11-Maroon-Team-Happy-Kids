@@ -5,18 +5,15 @@ import { Events } from './pages/events';
 import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
 import { Footer } from './public-components/footer';
-
-// import { MainPage } from './pages';
-
-
-
+import { Header } from './public-components/header'
+import { Button } from './public-components/button';
 
 
 function AppRouter(){
     return (
         <>
         <Router>
-            <div className="container">
+            <div className="container" id="site-content">
             <Header />
                 <nav>
                     <ul>
@@ -31,16 +28,13 @@ function AppRouter(){
                         </li>
                     </ul>
                 </nav>
-                <Route path="/:id" component={Child}/>
 
                 <Route path="/" exact component ={Homepage}/>
                 <Route path="/events/" exact component ={Events}/>
                 <Route path="/pdp/" exact component ={Pdp}/>
 
-                <Route path="/order/:direction(asc|desc)"
-                    component={ComponentWithRegex}/>
             </div>
-            <Footer></Footer>
+            <Footer/>
         </Router>
         </>
     )

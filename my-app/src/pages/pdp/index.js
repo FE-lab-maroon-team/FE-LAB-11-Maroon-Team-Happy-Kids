@@ -1,1 +1,1 @@
-export  { Pdp }  from './pdp.component.js';
+export  { Pdp }  from './pdp.component';

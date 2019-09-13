@@ -1,1 +1,1 @@
-export { Textlink } from './text-link.component.js';
+export { Textlink } from './text-link';

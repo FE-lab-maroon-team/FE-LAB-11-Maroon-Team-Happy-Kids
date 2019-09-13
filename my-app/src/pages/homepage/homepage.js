@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GoogleMap } from './google-map';
-import styles from './homepage.module.scss';
+import styles from './homepage.css';
 
 export const Homepage = (props) => {
     return (
         <>
-        <div>
+        <div className="homepage">
             Homepage content...
         </div>
         <div>
