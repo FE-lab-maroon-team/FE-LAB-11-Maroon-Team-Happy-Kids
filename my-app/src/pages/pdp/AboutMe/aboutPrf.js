@@ -1,4 +1,5 @@
 import React from 'react';
+import './aboutPrf.scss';
 
 export class AboutMeComponent extends React.Component{
      
