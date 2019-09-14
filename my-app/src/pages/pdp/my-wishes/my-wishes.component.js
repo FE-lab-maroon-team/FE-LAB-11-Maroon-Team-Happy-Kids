@@ -9,7 +9,7 @@ export class MyWishes extends Component {
                 <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
                     <div className={styles.col_4}>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка" />
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка1" />
                         <div className={styles.myWishesDetails}>
                             <div className={styles.subjectDetails}>
                                 <div className={styles.myWishesText}>
@@ -28,7 +28,7 @@ export class MyWishes extends Component {
                         </div>
                     </div>
                     <div className={styles.col_4}>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка" />
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка2" />
                         <div className={styles.myWishesDetails}>
                             <div className={styles.subjectDetails}>
                                 <div className={styles.myWishesText}>
@@ -47,7 +47,7 @@ export class MyWishes extends Component {
                         </div>
                     </div>
                     <div className={styles.col_4}>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка" />
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка3" />
                         <div className={styles.myWishesDetails}>
                             <div className={styles.subjectDetails}>
                                 <div className={styles.myWishesText}>
