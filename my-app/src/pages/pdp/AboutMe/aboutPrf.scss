@@ -1,0 +1,29 @@
+.container_aboutMe{
+    width:1400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #5499C7;
+}
+.aboutMe_title{
+    color:white;
+    text-align: center;
+}
+li{
+    padding-bottom: 5px;
+    line-height: 35px;
+}
+
+.aboutMe_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.aboutMe_items{
+  list-style-type: none;
+  margin-bottom: 40px;
+}
+.items_name,.items_surname,.items_age,.items_description{
+    font-size: 20px;
+    font-weight: 600;
+    color:white;
+}
