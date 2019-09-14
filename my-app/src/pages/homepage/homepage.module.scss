@@ -1,6 +1,8 @@
+$bgcGoogleMap: #3498DB;
 .container_google_maps{
-    width: 85%;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    background-color: $bgcGoogleMap;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { GoogleMap } from './google-map';
 import classes from './homepage.module.scss';
 import { Description } from './description';

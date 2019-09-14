@@ -1,17 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import classes from './pdp.module.scss';
+// import PropTypes from 'prop-types';
+import { MyWishes } from './my-wishes';
+import styles from './pdp.module.scss';
 
 export const Pdp = (props) => {
 return(
-    <div>
-        Hello from Pdp
+    <div className={styles.container_my_wishes}>
+        <MyWishes />
     </div>
 )
 }
 
-Pdp.propTypes = {
-    message: PropTypes.string.isRequired,
-}
+
 
