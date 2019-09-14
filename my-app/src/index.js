@@ -20,7 +20,7 @@ function AppRouter(){
                             <Link to='/events'>Events</Link>
                         </li>
                         <li>
-                            <Link to='/pdp'>Home</Link>
+                            <Link to='/pdp'>Pdp</Link>
                         </li>
                     </ul>
                 </nav>
