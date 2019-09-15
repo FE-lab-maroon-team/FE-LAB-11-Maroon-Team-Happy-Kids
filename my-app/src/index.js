@@ -7,13 +7,13 @@ import { Pdp } from './pages/pdp';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
 import { Button } from './public-components/button';
-
+import classes from './index.scss';
 
 function AppRouter(){
     return (
         <>
         <Router>
-            <div className="container" id="site-content">
+            <div className={classes.container}>
             <Header />
                 <nav>
                     <ul>
