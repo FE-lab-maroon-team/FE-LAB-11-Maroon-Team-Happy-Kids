@@ -106,7 +106,6 @@ export class Footer extends Component {
           <li><Textlink name='Деталі' path='../../pages/pdp' /></li>
         </ul>
       </div>
- 
     </div>
   )
 }
