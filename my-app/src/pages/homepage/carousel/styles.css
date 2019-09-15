@@ -1,0 +1,38 @@
+.slick-slider {
+    padding: 5% 10%;
+    margin: 0 15%;
+}
+
+.slick-slide div {
+    outline: none;
+}
+
+.slick-slide img {
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.slick-slide h3 {
+    color: #000;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+    opacity: 1;
+}
+
+.slick-prev:before {
+    content: '←';
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 3.5rem;
+    line-height: 0;
+    opacity: .75;
+    color: black;
+}

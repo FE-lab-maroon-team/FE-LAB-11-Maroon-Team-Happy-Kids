@@ -5,19 +5,7 @@ import { db } from '../../../firebase-config';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-const image = {
-  borderRadius: '50%',
-  backgroundSize: 'cover',
-  height: '10rem',
-  width: '10rem',
-  background: 'center center',
-  margin: '0 auto'
-}
-
-const heading = {
-  textAlign: 'center',  
-}
+import './styles.css';
 
 export class Carousel extends React.Component {
 
@@ -43,8 +31,8 @@ export class Carousel extends React.Component {
       const {name, photoUrl} = user;
       return (
         <div>
-          <img style={image} src={photoUrl} alt="users_photo" id="slide-image"></img>
-          <h3 style={heading}>{name}</h3>
+          <img src={photoUrl} alt="users_photo" id="slide-image"></img>
+          <h3>{name}</h3>
         </div>
       )
     })
@@ -52,44 +40,42 @@ export class Carousel extends React.Component {
 
   render() {
     const settings = {
-      slidesToShow: 4,
+      slidesToShow: 3,
       infinite: false,
       swipeToSlide: true,
-      dots: true,
-      lazyLoad: true,
+      dots: false,
       draggable: true,
-      autoplay: true,
+      arrows: true,
+      nextArrow: '',
+      prevArrow: '',
       responsive: [
         {
           breakpoint: 1200,
           settings: {
-            slidesToShow: 4,
-            dots: true
+            slidesToShow: 3,
           }
         },
         {
           breakpoint: 992,
           settings: {
+            arrows: false,
             slidesToShow: 2,
-            dots: false
           }
         },
         {
           breakpoint: 768,
           settings: {
+            arrows: false,
             slidesToShow: 1,
-            dots: false
           }
         }
       ]
   };
 
     return (
-      <div>
-        <Slider {...settings}>
-        {this.renderItems(this.state.allUsers)}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+      {this.renderItems(this.state.allUsers)}
+      </Slider>
     );
   }
 }
