@@ -4,6 +4,7 @@ import { GoogleMap } from './google-map';
 import classes from './homepage.module.scss';
 import { Description } from './description';
 import { Events } from './events';
+import { Footer } from '../../public-components/footer';
 
 export const Homepage = (props) => {
     return (
@@ -18,6 +19,7 @@ export const Homepage = (props) => {
                 <GoogleMap />
             </div>
         </div>
+        <Footer/>
         </>
     )
 }
