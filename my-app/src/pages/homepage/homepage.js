@@ -7,8 +7,13 @@ import classes from './homepage.module.scss';
 import { Description } from './description';
 import { Events } from './events';
 
+
 export const Homepage = (props) => {
     return (
+        <>
+        <div className="homepage">
+            Homepage content...
+        </div>
         <div>
             <Description />
             <Events />
@@ -17,5 +22,7 @@ export const Homepage = (props) => {
                 <GoogleMap />
             </div>
         </div>
+        
+        </>
     )
 }
