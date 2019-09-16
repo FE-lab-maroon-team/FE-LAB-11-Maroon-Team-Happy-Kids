@@ -50,7 +50,7 @@ span a {
 }
 
 .footer_social {
-    padding: 0px 20px 0px 40px;
+    padding: 15px 20px 0px 40px;
 }
 
 .footer_social ul li {
@@ -93,11 +93,11 @@ span a {
     align-items: center;
     text-align: center;
     padding: 15px;
-    line-height: 1.4em;
+    line-height: 1.5em;
 }
 
 .footer_text_about a {
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(255,255,255,0.2);
 } 
 
@@ -134,7 +134,7 @@ span a {
 .footer_contacts_links {
     display: flex;
     flex-direction: row;
-    padding: 0 50px;
+    padding: 0 20px 0 50px;
 }
 
 .footer_contacts, .footer_links {
