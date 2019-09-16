@@ -16,8 +16,6 @@ export class Footer extends Component {
       prevScrollpos: window.pageYOffset,
       visible: true
     };
-
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   // Adds an event listener when the component is mount.
@@ -34,7 +32,6 @@ export class Footer extends Component {
   handleScroll = () => {
     
     const { prevScrollpos } = this.state;
-    console.log(this);
   
     const currentScrollPos = window.pageYOffset;
     const visible = prevScrollpos > currentScrollPos;
