@@ -6,7 +6,6 @@ import { Homepage } from './pages/homepage';
 import { Pdp } from './pages/pdp';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
-import { Button } from './public-components/button';
 import classes from './index.scss';
 
 function AppRouter(){
