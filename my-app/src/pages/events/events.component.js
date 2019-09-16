@@ -30,12 +30,6 @@ function convertToDate(date) {
     return new Date((date*milisec)).toLocaleDateString('en-GB');
 }
 
-function displayButtonOrNot(donated){
-    if(donated){
-        return <Button text='Donate'/>
-    }
-}
-
 const EventsList = () => {
 
     const events = useEvents();
@@ -57,7 +51,9 @@ const EventsList = () => {
                                 </div>
                                 <p>{event.description}</p>
                                 <div className={styles.button} >
-                                    {displayButtonOrNot(event.donated)}
+                                    {event.donated && (
+                                        <Button text='Donate'/>
+                                    )}
                                 </div>
                             </div>
                         </div>
