@@ -1,1 +1,0 @@
-export { MyWishes } from './my-wishes.component';

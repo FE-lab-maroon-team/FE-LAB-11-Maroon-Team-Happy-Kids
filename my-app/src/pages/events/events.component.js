@@ -1,18 +1,65 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react'
+import styles from './events.module.scss'
+import { Button } from '../../public-components/button'
 
-import classes from './events.module.scss';
+import { db } from '../../firebase-config';
 
-export const Events = (props) => {
-  return(
-  <div>
-      Hello from Events
-  </div>
-  )
+function useEvents() {
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        const unsubscribe = db
+        .collection('events')
+        .onSnapshot((snapshot) => {
+            const newEvent = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }))
+
+            setEvents(newEvent);
+        })
+
+        return () => unsubscribe()
+    }, [])
+
+    return events
 }
 
-Events.propTypes = {
-  message: PropTypes.string.isRequired,
+function convertToDate(date) {
+    const milisec = 1000;
+    return new Date((date*milisec)).toLocaleDateString('en-GB');
 }
 
-export default Events
+const EventsList = () => {
+
+    const events = useEvents();
+
+    return (
+        <div className={styles.mainEventsBlock}>
+            <h1>Найближчі події</h1>
+                    {events.map((event) =>
+                        <div key={event.id} className={styles.eventBlock}>
+                            <div className={styles.eventImage}>
+                                <img src={event.imageUrl}></img>
+                            </div>
+
+                            <div key={event.id} className={styles.eventDescription}>
+                                <h2>{event.name}</h2>
+                                <div>
+                                    <p>Коли: <strong>{convertToDate(event.date.seconds)}</strong></p>
+                                    <p>Де: <strong>{event.address}</strong></p>
+                                </div>
+                                <p>{event.description}</p>
+                                <div className={styles.button} >
+                                    {event.donated && (
+                                        <Button text='Donate'/>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+            </div>
+    )
+}
+
+export default EventsList

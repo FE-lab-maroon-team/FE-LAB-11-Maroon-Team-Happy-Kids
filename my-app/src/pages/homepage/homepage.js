@@ -8,16 +8,11 @@ import { Events } from './events';
 
 export const Homepage = (props) => {
     return (
-        <>
         <div>
             <Description />
             <Events />
             <Carousel />
-            <div className={styles.container_google_maps}>
-                <GoogleMap />
-            </div>
+            <GoogleMap />
         </div>
-        
-        </>
     )
 }
