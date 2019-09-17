@@ -6,14 +6,13 @@ import { Homepage } from './pages/homepage';
 import { Profile } from './pages/profile';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
-import styles from './index.scss';
+import styles from './index.module.scss';
 
 function AppRouter(){
-    return (
-        <div className={styles.container}>
+    return (  
             <Router>
-                <div>
                 <Header />
+                <div className={styles.container}>
                     <nav>
                         <ul>
                             <li>
@@ -30,10 +29,9 @@ function AppRouter(){
                     <Route path="/" exact component ={Homepage}/>
                     <Route path="/events/" exact component ={Events}/>
                     <Route path="/profile/" exact component ={Profile}/>
-                    <Footer/>
                 </div>
+                <Footer/>
             </Router>
-        </div>
     )
 }
 
