@@ -100,7 +100,7 @@ export class Footer extends Component {
         <ul className="footer_links">
           <li><Textlink name='Домашня' path='../../pages/homepage' /></li>
           <li><Textlink name='Події' path='../../pages/events' /></li>
-          <li><Textlink name='Деталі' path='../../pages/pdp' /></li>
+          <li><Textlink name='Деталі' path='../../pages/profile' /></li>
         </ul>
       </div>
     </div>
