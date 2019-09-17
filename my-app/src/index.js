@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Events } from './pages/events';
 import { Homepage } from './pages/homepage';
+import { Footer } from './public-components/footer';
+import { Header } from './public-components/header';
 import { Profile } from './pages/profile';
-import { Header } from './public-components/header'
 // import { Button } from './public-components/button';
 import styles from './index.scss';
 
@@ -31,11 +32,14 @@ function AppRouter(){
                 <Route path="/" exact component ={Homepage}/>
                 <Route path="/events/" exact component ={Events}/>
                 <Route path="/profile/" exact component ={Profile}/>
+                <Footer/>
             </div>
         </Router>
         </>
     )
 }
+
+
 ReactDOM.render(<AppRouter />,document.querySelector('#root')
 )
 
