@@ -9,7 +9,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 10px 20px;
-    background-color: #f1f1f1;
+    background-color: #0c9dc9;
     font-family: Arial, Helvetica, sans-serif;
 }
 .header_logo{
@@ -28,8 +28,7 @@
     border-radius: 4px;
 }
 .header_menu__item > li:hover{
-    background-color:  #ddd;
-    color:black;
+    color:#ddd;
 }
 .header_menu__item li{
     font-family: Arial, Helvetica, sans-serif;
@@ -50,12 +49,13 @@
    .header_menu__item >li{
        display: list-item;
        display: flex;
+       justify-content: center;
        align-items: center;
        height:40px;
        width:100%;
    }
    .header_menu__item > li:hover{
-       background-color:dodgerblue;
+       background-color:#154360;
        border-radius: 5px;
        color:white;
    }
