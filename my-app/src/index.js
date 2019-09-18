@@ -3,41 +3,35 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Events } from './pages/events';
 import { Homepage } from './pages/homepage';
-import { Pdp } from './pages/pdp';
+import { Profile } from './pages/profile';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
-import classes from './index.scss';
+import styles from './index.module.scss';
 
 function AppRouter(){
-    return (
-        <>
-        <Router>
-            <div className={classes.container}>
-            <Header />
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to='/'>Home</Link>
-                        </li>
-                        <li>
-                            <Link to='/events'>Events</Link>
-                        </li>
-                        <li>
-                            <Link to='/pdp'>Pdp</Link>
-                        </li>
-                    </ul>
-                </nav>
-
-                <Route path="/" exact component ={Homepage}/>
-                <Route path="/events/" exact component ={Events}/>
-                <Route path="/pdp/" exact component ={Pdp}/>
-
+    return (  
+            <Router>
+                <Header />
+                <div className={styles.container}>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to='/'>Home</Link>
+                            </li>
+                            <li>
+                                <Link to='/events'>Events</Link>
+                            </li>
+                            <li>
+                                <Link to='/profile'>Profile</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <Route path="/" exact component ={Homepage}/>
+                    <Route path="/events/" exact component ={Events}/>
+                    <Route path="/profile/" exact component ={Profile}/>
+                </div>
                 <Footer/>
-
-            </div>
-           
-        </Router>
-        </>
+            </Router>
     )
 }
 
