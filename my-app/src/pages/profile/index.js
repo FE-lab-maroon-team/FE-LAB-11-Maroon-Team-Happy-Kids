@@ -1,1 +1,1 @@
-export  { Profile }  from './profile.component.js';
+export  { Profile }  from './profile.component';

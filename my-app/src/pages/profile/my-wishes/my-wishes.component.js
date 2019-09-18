@@ -1,92 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './my-wishes.module.scss';
 import { db } from '../../../firebase-config';
 import { Button } from '../../../public-components/button'
 
-export class MyWishes extends Component {
-    // state = {
-    //     myWishes: []
-    // }
+function useWishes() {
+    const [wishes, setEvents] = useState([]);
 
-    // componentDidMount(){
-    //     const myWishes = db.collection('users');
-    //     const myWishesData = [];
-    //     myWishes.length().then(snapshot => {
-    //         snapshot.forEach(doc => {
-    //             myWishesData.push(doc.data());
-    //         })
-    //         this.setState({
-    //             myWishes: myWishesData
-    //         })
-    //     })
-    // }
+    useEffect(() => {
+        const unsubscribe = db
+            .collection('users')
+            .onSnapshot((snapshot) => {
+                const newEvent = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
 
+                setEvents(newEvent);
+            })
 
+        return () => unsubscribe()
+    }, [])
 
-    render() {
-        return (
-            <div className={styles.mainMyWishes}>
-                <h1>Мої бажання</h1>
+    return wishes
+}
+export const MyWishes = () => {
+    const wishes = useWishes();
+    return (
+        <div className={styles.mainMyWishes}>
+            <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
+                {wishes.map((wishe) =>
                     <div className={styles.col_4}>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка1" />
+                        <img src={wishe.photoUrl} alt="Фото подарунка"></img>
                         <div className={styles.myWishesDetails}>
+                            <h3>{wishe.wishes.name}</h3>
                             <div className={styles.subjectDetails}>
+                                
                                 <div className={styles.myWishesText}>
                                     <p>Ціна</p>
                                     <p>Країна виробник</p>
                                 </div>
                                 <div className={styles.myWishesPrice}>
-                                    <p>300$</p>
-                                    <p>Germany</p>
+                                    <p>{wishe.wishes.price}</p>
+                                    <p>{wishe.wishes.madeCountry}</p>
                                 </div>
                             </div>
                             <div className={styles.myWishesDescribe}>
-                                <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                <Button text="Подарувати" />
+                                <p>{wishe.wishes.description}</p>
+                                <Button text="Подарувати" className={styles.button}/>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.col_4}>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка2" />
-                        <div className={styles.myWishesDetails}>
-                            <div className={styles.subjectDetails}>
-                                <div className={styles.myWishesText}>
-                                    <p>Ціна</p>
-                                    <p>Країна виробник</p>
-                                </div>
-                                <div className={styles.myWishesPrice}>
-                                    <p>300$</p>
-                                    <p>Germany</p>
-                                </div>
-                            </div>
-                            <div className={styles.myWishesDescribe}>
-                                <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                <Button text="Подарувати" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.col_4}>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71r%2BAUuk9nL._SL1500_.jpg" alt="Фото подарунка3" />
-                        <div className={styles.myWishesDetails}>
-                            <div className={styles.subjectDetails}>
-                                <div className={styles.myWishesText}>
-                                    <p>Ціна</p>
-                                    <p>Країна виробник</p>
-                                </div>
-                                <div className={styles.myWishesPrice}>
-                                    <p>300$</p>
-                                    <p>Germany</p>
-                                </div>
-                            </div>
-                            <div className={styles.myWishesDescribe}>
-                                <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                <Button text="Подарувати" />
-                            </div>
-                        </div>
-                    </div>
+                    )}
                 </div>
-            </div>
-        )
-    }
+        </div>
+    )
 }

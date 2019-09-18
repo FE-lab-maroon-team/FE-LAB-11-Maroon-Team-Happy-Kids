@@ -66,8 +66,8 @@ export class Footer extends Component {
           </div>
         </div>
 
-        <div class="or-spacer-vertical left">
-          <div class="mask"></div>
+        <div className="or-spacer-vertical left">
+          <div className="mask"></div>
         </div>
         <div className="footer_text_about">
           <a>
@@ -82,8 +82,8 @@ export class Footer extends Component {
           </a>
         </div>
 
-        <div class="or-spacer-vertical right">
-          <div class="mask"></div>
+        <div className="or-spacer-vertical right">
+          <div className="mask"></div>
         </div>
       
 
