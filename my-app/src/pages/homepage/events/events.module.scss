@@ -26,8 +26,15 @@ h2 {
     padding: 20px 45px;
     div {
       h2 {
+        padding: 25px 0;
         @media screen and (max-width: 768px) {
           text-align: center;
+        }
+      }
+      div {
+        padding-bottom: 25px;
+        p {
+          padding-bottom: 7px;
         }
       }
     }
@@ -58,7 +65,7 @@ h2 {
 .button {
   display: flex;
   justify-content: flex-end;
-  padding: 15px 0;
+  padding: 25px 0;
   @media screen and (max-width: 768px) {
     justify-content: space-around;
   }

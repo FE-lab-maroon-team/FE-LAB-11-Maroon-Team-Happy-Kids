@@ -1,32 +1,71 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from '../../../public-components/button'
-import MeetingPhoto from '../../../assets/images/meeting-photo.jpg';
+import { db } from '../../../firebase-config';
 import styles from './events.module.scss';
 
-class Events extends Component {
-    render() {
+function useEvents() {
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        const unsubscribe = db
+        .collection('events')
+        .onSnapshot((snapshot) => {
+            const newEvent = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }))
+
+            setEvents(newEvent);
+        })
+
+        return () => unsubscribe()
+    }, [])
+
+    return events
+}
+
+function convertToDate(date) {
+    const milisec = 1000;
+    return new Date((date*milisec)).toLocaleDateString('en-GB');
+}
+
+function Events() {
+        const events = useEvents();
+        let i = 0;
+        const name= [],
+            id = [],
+            address =[],
+            img = [],
+            description = [],
+            date = [],
+            donated = [];
+        events.map((event) => {
+            name[i] = event.name;
+            id[i] = event.id;
+            address[i] = event.address;
+            img[i] = event.imageUrl;
+            description[i] = event.description;
+            date[i] = event.date.seconds;
+            donated[i] = event.donated;
+            i++;
+        });
         return(
             <div className={styles.eventBlock}>
                 <div className={styles.eventImage}>
-                    <img src={MeetingPhoto} alt='charity meeting'></img>
+                    <img src={img[0]} alt='charity meeting'></img>
                 </div>
                 <div className={styles.eventDescription}>
                     <div>
-                        <h2>Благодійна зустріч</h2>
+                        <h2>{name[0]}</h2>
                         <div>
-                            <p>Коли: <strong>01.10.2019</strong></p>
-                            <p>Де: <strong>вул. Сахарова, 25, Львівська область, Львів</strong></p>
+                            <p>Коли: <strong>{convertToDate(date[0])}</strong></p>
+                            <p>Де: <strong>{address[0]}</strong></p>
                         </div>
-                        <p>
-                            Організовано збір допомоги Дитячому будинку "Надія". Вихователі і діти 
-                            будуть раді будь-якій допомозі. В них є потреба в теплих речах, взутті, 
-                            одязі, канцтоварах, книгах, їжі, речах побуду, аудіо та відео техніці. 
-                            Діти залюбки проведуть свій час на майстер-класах, навчальних та розважальних програмах.
-                            Прийматьюся як нові речі так і вживані. Вклад кожного з нас допоможе іншій людині.
-                            Не будь байдужим - допоможи!
-                        </p>
+                        <p>{description[0]}</p>
                         <div className={styles.button} >
-                        <Button text='More info...'/>
+                                {donated[0] && (
+                                        <Button text='Детальніше...'/>
+                                    )}
                         </div>
                         
                     </div>
@@ -34,6 +73,5 @@ class Events extends Component {
             </div>
         )
     }
-}
 
 export default Events
