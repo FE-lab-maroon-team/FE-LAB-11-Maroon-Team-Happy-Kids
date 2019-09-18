@@ -9,8 +9,9 @@ import styles from './index.module.scss';
 import { Homepage } from './pages/homepage';
 // import { Button } from './public-components/button';
 
-export function AppRouter(){
-    return (  
+ class  AppRouter extends React.Component{
+    render(){
+        return (  
             <Router>
                 <Header />
                 <div className={styles.container}>
@@ -34,7 +35,7 @@ export function AppRouter(){
                 <Footer/>
             </Router>
     )
+    }
 }
 
-ReactDOM.render(<AppRouter />,document.querySelector('#root')
-)
+ReactDOM.render(<AppRouter />,document.querySelector('#root'))
