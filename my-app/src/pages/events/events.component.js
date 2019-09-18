@@ -40,7 +40,7 @@ const EventsList = () => {
                     {events.map((event) =>
                         <div key={event.id} className={styles.eventBlock}>
                             <div className={styles.eventImage}>
-                                <img src={event.imageUrl}></img>
+                                <img src={event.imageUrl} alt="Фото1"></img>
                             </div>
 
                             <div key={event.id} className={styles.eventDescription}>
