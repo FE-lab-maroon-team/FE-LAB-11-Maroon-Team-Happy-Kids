@@ -19,10 +19,9 @@ h1,h2,h3,h4,h5,h6,p {
   }
   .eventBlock {
     background-color: $secondary-color;
-    width: 80vw;
     display: flex;
     flex-direction: row;
-    margin: 50px 0;
+    margin: 50px;
     box-sizing: border-box;
     @media screen and (max-width: 768px) {
       display: flex;
@@ -50,6 +49,8 @@ h1,h2,h3,h4,h5,h6,p {
       }
       .button {
         padding: 25px 0;
+        display: flex;
+        justify-content: flex-end;
       }
     }
     .eventImage {
