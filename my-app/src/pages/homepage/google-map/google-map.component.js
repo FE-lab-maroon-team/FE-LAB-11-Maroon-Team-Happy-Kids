@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from './google-map.module.scss';
+import styles from './google-map.module.scss';
 
 export class GoogleMap extends Component{
     componentDidMount(){
@@ -35,14 +35,14 @@ export class GoogleMap extends Component{
     }
     render(){
         return(
-            <>
+            <div className={styles.container_google_maps}>
                 <h1>Де ми знаходимось!</h1>
                 <div
                 ref={this.googleMapRef}
-                className={classes.google_map}
+                className={styles.google_map}
                 />
                 
-            </>
+            </div>
         )
     }
 }

@@ -1,11 +1,11 @@
 
 span a {
-    color: rgb(169, 172, 172);
+    /* color: rgb(169, 172, 172); */
     text-decoration: none;
 }
 
 .footer_main {
-    height: 12em;
+    height: 13em;
 }
 
 .footer {
@@ -18,7 +18,7 @@ span a {
     margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px 0 20px 0;
-    background-color: #2A2A2A;
+    background-color: #0c9dc9;
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -43,7 +43,7 @@ span a {
 
 .footer_logo {
     padding: 2em 3em 2em 3em;
-    color: rgb(169, 172, 172);
+    color: rgb(233, 231, 231);
     
 }
 
@@ -79,11 +79,11 @@ span a {
 }   
 
 .footer_social ul li a {
-    color: rgba(255,255,255,0.2);
+    color: rgb(233, 231, 231);
 }
 
 .footer_social ul li a:hover {
-    color: #da3e44;
+    color: #185099;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
@@ -97,7 +97,7 @@ span a {
     font-size: 10px;
     line-height: 17px;
     padding: 5px 0px 5px 0px;
-    color: rgba(255,255,255,0.2);
+    color: rgb(233, 231, 231);
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.250em;
@@ -129,7 +129,7 @@ span a {
 
 .footer_text_about {
     font-size: 18px;
-    color: rgba(255,255,255,0.2);
+    color: rgb(233, 231, 231);
 } 
 
 .mask { 
@@ -145,7 +145,7 @@ span a {
     width:20px; 
     height:100%;  
     border-radius:5px / 125px;  
-    box-shadow:0 0 8px rgba(255,255,255,0.2);
+    box-shadow:0 0 8px rgb(233, 231, 231);
 }
 
 .right .mask:before { 
@@ -155,7 +155,7 @@ span a {
     width:20px; 
     height:100%; 
     border-radius:5px / 125px; 
-    box-shadow:0 0 8px  rgba(255,255,255,0.2);
+    box-shadow:0 0 8px  rgb(233, 231, 231);
 }
 
 /* /////////////////////////////////////////////// */

@@ -68,8 +68,8 @@ export class Footer extends Component {
           </div>
         </div>
 
-        <div class="or-spacer-vertical left">
-          <div class="mask"></div>
+        <div className="or-spacer-vertical left">
+          <div className="mask"></div>
         </div>
         <div className="footer_text_about">
           
@@ -79,8 +79,8 @@ export class Footer extends Component {
           
         </div>
 
-        <div class="or-spacer-vertical right">
-          <div class="mask"></div>
+        <div className="or-spacer-vertical right">
+          <div className="mask"></div>
         </div>
       
 
@@ -95,9 +95,9 @@ export class Footer extends Component {
         </ul>
 
         <ul className="footer_links">
-          <li><Textlink name='Домашня' path='../../pages/homepage' /></li>
-          <li><Textlink name='Події' path='../../pages/events' /></li>
-          <li><Textlink name='Деталі' path='../../pages/pdp' /></li>
+          <li><Textlink name='Домашня' path='/' /></li>
+          <li><Textlink name='Події' path='/events' /></li>
+          <li><Textlink name='Профіль' path='/profile' /></li>
         </ul>
       </div>
     </div>
