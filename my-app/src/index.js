@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Events } from './pages/events';
-import { Profile } from './pages/profile';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
+import { Homepage } from './pages/homepage/index';
+import { Events } from './pages/events/index';
 import styles from './index.module.scss';
-import { Homepage } from './pages/homepage';
-// import { Button } from './public-components/button';
+import { Button } from './public-components/button';
 
 function AppRouter(){
     return (  
             <Router>
                 <Header />
                 <div className={styles.container}>
+                    <Route path="/" exact component={Homepage}></Route>
+                    <Route path="/events" exact component={Events}></Route>
                 </div>
                 <Footer/>
             </Router>
