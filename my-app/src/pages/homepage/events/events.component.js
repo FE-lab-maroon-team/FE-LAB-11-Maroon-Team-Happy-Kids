@@ -1,21 +1,16 @@
 import React from "react";
-import { Button } from '../../../public-components/button'
+import { Button } from '../../../public-components/button';
+import { Spinner } from '../../../public-components/spinner';
 import styles from './events.module.scss';
 import { convertToDate } from '../../../libs/helpers/convertToDate';
 import { useEvents } from '../../../libs/helpers/useEvents';
-import Spin from 'antd/es/spin';
-import 'antd/dist/antd.css';
 
 function Events() {
     const events = useEvents();
     const [firstEvent, ...other] = events;
 
     if (firstEvent === undefined) {
-        return (
-            <div className={styles.spinner}>
-                <Spin tip="Завантаження..." size="large"></Spin>
-            </div>
-        )
+        return <Spinner />
     } else {
         return (
             <div className={styles.eventBlock}>
