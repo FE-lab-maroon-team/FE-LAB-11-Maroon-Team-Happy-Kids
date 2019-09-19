@@ -6,7 +6,7 @@ import { Header } from './public-components/header'
 import { Homepage } from './pages/homepage/index';
 import { Events } from './pages/events/index';
 import styles from './index.module.scss';
-// import { Button } from './public-components/button';
+import { Button } from './public-components/button';
 
 function AppRouter(){
     return (  
