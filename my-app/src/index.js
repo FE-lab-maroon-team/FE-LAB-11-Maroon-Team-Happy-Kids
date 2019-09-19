@@ -14,22 +14,6 @@ function AppRouter(){
             <Router>
                 <Header />
                 <div className={styles.container}>
-                    <nav>
-                        <ul>
-                            <li>
-                                <Link to='/'>Home</Link>
-                            </li>
-                            <li>
-                                <Link to='/events'>Events</Link>
-                            </li>
-                            <li>
-                                <Link to='/profile'>Profile</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <Route path="/" exact component ={Homepage}/>
-                    <Route path="/events/" exact component ={Events}/>
-                    <Route path="/profile/" exact component ={Profile}/>
                 </div>
                 <Footer/>
             </Router>
