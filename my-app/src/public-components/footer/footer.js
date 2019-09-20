@@ -87,7 +87,7 @@ export class Footer extends Component {
           <li><Icon className="footer_contacts_icons" type="phone" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
           <Textlink name='+38(097)1234567' path='' /></li>
           <li><Icon className="footer_contacts_icons" type="mail" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
-          <Textlink name='nadiya.com' path='' /></li>
+          <Textlink name='www.nadiya.com' path='' /></li>
           <li><Icon className="footer_contacts_icons" type="home" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
           <Textlink name='м.Львів, вул.Центральна,1' path='' /></li>
         </ul>
