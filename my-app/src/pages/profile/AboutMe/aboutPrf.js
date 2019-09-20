@@ -4,30 +4,34 @@ import { db } from '../../../firebase-config';
 
 export class AboutMeComponent extends React.Component{
 
+   userId = this.props.userId;
+   
+
    state = {
-      allUsers: []
+      user: null
     }
    
      componentDidMount() {
-       const allUsers = db.collection('users');
-       const usersData = [];
-       allUsers.get().then(snapshot => {
-         snapshot.forEach(doc => {
-           usersData.push(doc.data());
-         })
-         this.setState({
-           allUsers: usersData
-         })
-       })
+      let docRef = db.collection("users").doc(this.userId);
+      docRef.get()
+     .then(doc => {
+      if (!doc.exists) {
+      console.log('No such document!');
+      } else {
+          this.setState({
+            user:doc.data()
+          })
      }
-
-     renderUser(users) {
-      return users.map(user => {
-        const {name, surname, photoUrl,description,birthday} = user;
-        console.log(user)
-
-        return(
-         <div className="container_aboutMe">
+  });
+     }
+      render(){
+        if(!this.state.user){
+          return null
+        }
+        const { photoUrl,name,surname,description,birthday} = this.state.user;
+         return( 
+           console.log(this.state.user),
+          <div className="container_aboutMe">
                     <h2 className="aboutMe_title">Про мене</h2>
              <div className="aboutMe_container">
              <div className="aboutMe_photo">
@@ -36,22 +40,13 @@ export class AboutMeComponent extends React.Component{
              <div className="aboutMe_description">
                 <ul className="aboutMe_items">
                    <li><span className="items_name">Ім'я:  {name}</span></li>
-                   <li><span className="items_surname">Прізвище:  {surname}</span></li>
-                   <li><span className="items_age">Рік народження:  {birthday}</span></li>
-                   <li><span className="items_description">Про мене:  {description}</span></li>
+                   <li><span className="items_surname">Прізвище:  { surname }</span></li>
+                   <li><span className="items_age">Рік народження:  { birthday }</span></li>
+                   <li><span className="items_description">Про мене:  { description }</span></li>
                 </ul>
              </div>
              </div>
          </div>
          )
-      })
-    }
-
-      render(){
-
-         return( 
-         <div>{this.renderUser(this.state.allUsers)}</div>
-         )
       }
-
 }

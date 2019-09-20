@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
 import { Homepage } from './pages/homepage/index';
-import { Profile } from './pages/profile/index'
+import { Profile } from './pages/profile/index';
+import { AboutMeComponent } from './pages/profile/AboutMe/index';
 import { Events } from './pages/events/index';
 import styles from './index.module.scss';
 import { Button } from './public-components/button';
@@ -19,7 +20,7 @@ function AppRouter(){
                     <Route path="/profile/:id" 
                     render={({match}) => {
                         const {id} = match.params;
-                        return <Profile userId = {id} />
+                        return <AboutMeComponent userId = {id} />
                     }} />
                 </div>
                 <Footer/>
