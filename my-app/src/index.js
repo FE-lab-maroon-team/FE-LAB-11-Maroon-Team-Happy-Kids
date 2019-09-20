@@ -16,13 +16,15 @@ function AppRouter(){
                 <div className={styles.container}>
                     <Route path="/" exact component={Homepage}></Route>
                     <Route path="/events" exact component={Events}></Route>
-                    <Route path="/about" exact component={Profile}></Route>
+                    <Route path="/profile/:id" 
+                    render={({match}) => {
+                        const {id} = match.params;
+                        return <Profile userId = {id} />
+                    }} />
                 </div>
                 <Footer/>
             </Router>
     )
 }
 
-ReactDOM.render(<AppRouter />,document.querySelector('#root')
-)
-
+ReactDOM.render(<AppRouter />,document.querySelector('#root'));
