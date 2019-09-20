@@ -1,8 +1,6 @@
-
 import React, { Component } from 'react';
 import { Icon } from 'antd';
 import classnames from "classnames";
-import { Link } from 'react-router-dom';
 
 import { Textlink } from '../text-link'
 import className from './footer.css';
@@ -52,7 +50,7 @@ export class Footer extends Component {
           <div className="footer_logo">
           <div className="footer_logo_text">
             {new Date().getFullYear()} &#9400;: 
-            <Textlink className="footer_logo_text" name='www.nadiya.com' path='https://www.nadiya.com' />
+            <a href={'https://www.nadiya.com/'}> www.nadiya.com </a>
           </div>
             <div className="footer_logo_img"> </div>
           </div>

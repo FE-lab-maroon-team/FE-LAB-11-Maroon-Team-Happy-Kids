@@ -1,6 +1,5 @@
 
 span a {
-    /* color: rgb(169, 172, 172); */
     text-decoration: none;
 }
 
@@ -64,7 +63,20 @@ span a {
 .footer_logo_text {
     letter-spacing: 1px;
     font-size: 12px;
+    color: rgb(233, 231, 231);
+}
 
+.footer_logo_text a {
+    color: rgb(233, 231, 231);
+    text-decoration: none;
+}
+
+.footer_logo_text a:hover {
+    color: #185099;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 .footer_social ul {
