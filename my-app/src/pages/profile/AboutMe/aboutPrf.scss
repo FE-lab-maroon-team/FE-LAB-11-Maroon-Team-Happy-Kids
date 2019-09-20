@@ -1,9 +1,10 @@
 .container_aboutMe{
-    width:1400px;
+    width:100%;
+    max-width:1150px;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #5499C7;
+    background-color:#5499C7;
     margin-bottom: 30px;
 }
 .aboutMe_title{
@@ -13,12 +14,13 @@
     padding-bottom:20px;
 }
 li{
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     line-height: 35px;
 }
 .aboutMe_photo img{
-    width:500px;
-    height: 500px;
+    width:300px;
+    height: 300px;
+    margin-right: 20px;
     border-radius: 300px;
 }
 .aboutMe_container{
@@ -27,15 +29,18 @@ li{
     align-items: center;
     padding-bottom: 40px;
 }
-.aboutMe_description{
-   width:500px;
-}
 .aboutMe_items{
   list-style-type: none;
-  margin-bottom: 40px;
 }
 .items_name,.items_surname,.items_age,.items_description{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     color:white;
+}
+@media screen and (max-width: 560px){
+      .aboutMe_container{
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+      }
 }
