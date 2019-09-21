@@ -5,6 +5,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.text_link a {
+    color: rgb(233, 231, 231);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
 .text_link > a:hover {
     color: white;
