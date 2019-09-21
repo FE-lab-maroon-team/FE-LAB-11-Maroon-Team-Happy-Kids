@@ -1,0 +1,32 @@
+.slick-slider {
+    padding: 5% 10%;
+    margin: 0 15%;
+    div {
+        outline: none;
+        padding: 5px 0;
+    }
+}
+
+.slick-slide {
+    img {
+        border-radius: 50%;
+        height: 10rem;
+        width: 10rem;
+        margin: 0 auto;
+        object-fit: cover;
+        box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    }
+    h3 {
+        color: #000;
+        text-align: center;
+        padding-top: 2%;
+    }
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 3.5rem;
+    line-height: 0;
+    opacity: .75;
+    color: black;
+}
