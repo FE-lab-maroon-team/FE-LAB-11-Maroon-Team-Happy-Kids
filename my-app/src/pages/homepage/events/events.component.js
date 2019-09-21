@@ -1,39 +1,41 @@
-import React, { Component } from "react";
-import { Button } from '../../../public-components/button'
-import MeetingPhoto from '../../../assets/images/meeting-photo.jpg';
-import styles from './events.module.scss';
+import React from "react";
+import { Button } from "../../../public-components/button";
+import { Spinner } from "../../../public-components/spinner";
+import styles from "./events.module.scss";
+import { convertToDate } from "../../../libs/helpers/convertToDate";
+import { useEvents } from "../../../libs/helpers/useEvents";
 
-class Events extends Component {
-    render() {
-        return(
-            <div className={styles.eventBlock}>
-                <div className={styles.eventImage}>
-                    <img src={MeetingPhoto} alt='charity meeting'></img>
-                </div>
-                <div className={styles.eventDescription}>
-                    <div>
-                        <h2>Благодійна зустріч</h2>
-                        <div>
-                            <p>Коли: <strong>01.10.2019</strong></p>
-                            <p>Де: <strong>вул. Сахарова, 25, Львівська область, Львів</strong></p>
-                        </div>
-                        <p>
-                            Організовано збір допомоги Дитячому будинку "Надія". Вихователі і діти 
-                            будуть раді будь-якій допомозі. В них є потреба в теплих речах, взутті, 
-                            одязі, канцтоварах, книгах, їжі, речах побуду, аудіо та відео техніці. 
-                            Діти залюбки проведуть свій час на майстер-класах, навчальних та розважальних програмах.
-                            Прийматьюся як нові речі так і вживані. Вклад кожного з нас допоможе іншій людині.
-                            Не будь байдужим - допоможи!
-                        </p>
-                        <div className={styles.button} >
-                        <Button text='More info...'/>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        )
-    }
+function Events() {
+  const events = useEvents();
+  const [firstEvent, ...other] = events;
+
+  if (firstEvent === undefined) {
+    return <Spinner />;
+  }
+  return (
+    <div className={styles.eventBlock}>
+      <div className={styles.eventImage}>
+        <img src={firstEvent.imageUrl} alt="charity meeting"></img>
+      </div>
+      <div className={styles.eventDescription}>
+        <div>
+          <h2>{firstEvent.name}</h2>
+          <div>
+            <p>
+              Коли: <strong>{convertToDate(firstEvent.date.seconds)}</strong>
+            </p>
+            <p>
+              Де: <strong>{firstEvent.address}</strong>
+            </p>
+          </div>
+          <p>{firstEvent.description}</p>
+          <div className={styles.button}>
+            {firstEvent.donated && <Button text="Детальніше..." />}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Events
+export default Events;
