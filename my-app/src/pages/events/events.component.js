@@ -2,33 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styles from './events.module.scss'
 import { Button } from '../../public-components/button'
 
-import { db } from '../../firebase-config';
-
-function useEvents() {
-    const [events, setEvents] = useState([]);
-
-    useEffect(() => {
-        const unsubscribe = db
-        .collection('events')
-        .onSnapshot((snapshot) => {
-            const newEvent = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }))
-
-            setEvents(newEvent);
-        })
-
-        return () => unsubscribe()
-    }, [])
-
-    return events
-}
-
-function convertToDate(date) {
-    const milisec = 1000;
-    return new Date((date*milisec)).toLocaleDateString('en-GB');
-}
+import { convertToDate } from  '../../libs/helpers/convertToDate'
+import { useEvents } from '../../libs/helpers/useEvents'
 
 const EventsList = () => {
 
@@ -52,7 +27,7 @@ const EventsList = () => {
                                 <p>{event.description}</p>
                                 <div className={styles.button} >
                                     {event.donated && (
-                                        <Button text='Donate'/>
+                                        <Button text='Пожертвувати'/>
                                     )}
                                 </div>
                             </div>
