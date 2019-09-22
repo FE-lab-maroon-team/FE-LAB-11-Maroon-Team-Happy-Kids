@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.05);
+}
+.spinner .loading {
+  color: #0c9dc9;
+  padding-left: 25px;
+  font-size: 1.5em;
+  font-family: "Montserrat", sans-serif;
+}
+.spinner .animation {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  animation: rotate 2s infinite linear;
+}
+.spinner .animation .circle1, .spinner .animation .circle2 {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-color: #0c9dc9;
+  border-radius: 100%;
+  animation: bounce 2s infinite ease-in-out;
+}
+.spinner .animation .circle2 {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
