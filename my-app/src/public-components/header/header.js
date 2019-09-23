@@ -1,8 +1,8 @@
 import React from 'react';
 import { Textlink } from '../text-link/index'
-import { Button } from '../button/index'
 import '../header/header.css';
 import { Link } from 'react-router-dom';
+import { Auth } from '../auth';
 
 
 
@@ -15,7 +15,7 @@ export const Header = () =>{
                 <ul className="header_menu__item">
                     <li><Textlink path='/' name="Home"/></li>
                     <li><Textlink path='/events' name="Events"/></li>
-                    <li><Button onClick="" text="Login"></Button></li>
+                    <li><Auth /></li>
                 </ul>
             </nav>
         </div>

@@ -22,7 +22,7 @@ function AppRouter(){
                         return <Profile userId = {id} />
                     }} />
                 </div>
-                <Footer/>
+                <Footer />
             </Router>
     )
 }

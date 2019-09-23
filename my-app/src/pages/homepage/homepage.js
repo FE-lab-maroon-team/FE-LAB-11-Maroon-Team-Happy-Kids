@@ -4,6 +4,7 @@ import styles from './homepage.module.scss';
 import { Carousel } from './carousel';
 import { Description } from './description';
 import { Events } from './events';
+import { Auth } from '../../public-components/auth';
 
 
 export const Homepage = (props) => {
@@ -13,6 +14,7 @@ export const Homepage = (props) => {
             <Events />
             <Carousel />
             <GoogleMap />
+            <Auth />
         </div>
     )
 }
