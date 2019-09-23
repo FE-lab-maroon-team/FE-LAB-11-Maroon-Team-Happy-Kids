@@ -1,10 +1,9 @@
 import React from 'react';
 import './aboutPrf.scss';
+import { Spinner } from '../../../public-components/spinner/index';
 import { db } from '../../../firebase-config';
 
 export class AboutMeComponent extends React.Component{
-
-   userId = this.props.userId;
    
 
    state = {
@@ -12,7 +11,7 @@ export class AboutMeComponent extends React.Component{
     }
    
      componentDidMount() {
-      let docRef = db.collection("users").doc(this.userId);
+      let docRef = db.collection("users").doc(this.props.userId);
       docRef.get()
      .then(doc => {
       if (!doc.exists) {
@@ -26,11 +25,10 @@ export class AboutMeComponent extends React.Component{
      }
       render(){
         if(!this.state.user){
-          return null
+          return <Spinner />
         }
         const { photoUrl,name,surname,description,birthday} = this.state.user;
          return( 
-           console.log(this.state.user),
           <div className="container_aboutMe">
                     <h2 className="aboutMe_title">Про мене</h2>
              <div className="aboutMe_container">
