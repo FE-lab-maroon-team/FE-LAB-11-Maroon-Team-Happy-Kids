@@ -1,16 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
-import { createBrowserHistory as createHistory } from 'history';
-
 import { db } from '../../../firebase-config';
+import { withRouter } from 'react-router';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './carousel.scss';
 
-export class Carousel extends React.Component {
-
-  history = createHistory(this.props);
+class CarouselComponent extends React.Component {
 
   state = {
     allUsers: []
@@ -30,8 +27,7 @@ export class Carousel extends React.Component {
   }
 
   onItemSelected(userId) {
-    console.log(userId);
-    this.history.push(`/profile/${userId}`);
+    this.props.history.push(`/profile/${userId}`);
   }
 
   renderItems(users) {
@@ -87,3 +83,5 @@ export class Carousel extends React.Component {
     );
   }
 }
+
+export const Carousel = withRouter(CarouselComponent);
