@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import firebase from '../../../firebase-config';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import auth from '../../../firebase-config';
+// import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import "firebase/auth";
-import {SignOut} from '../sign-out';
 import styles from './sign-in.module.scss';
 
 export class SignIn extends Component {
@@ -29,14 +29,13 @@ export class SignIn extends Component {
         return(
             <div>{this.state.isSignedIn ? (
                 <>
-                    <h1 className={styles.currentUsername}>Welcome: {firebase.auth().currentUser.displayName}</h1>
-                    <SignOut />
+                    <h1 className={styles.currentUsername}>Welcome: {firebase.auth.currentUser.displayName}</h1>
+                    <Button onClick={() => {
+                        firebase.auth.SignOut();
+                    }} />
                 </>
             ) : (
-                <StyledFirebaseAuth
-                    uiConfig={this.uiConfig}
-                    firebaseAuth={firebase.auth()}
-                />
+                <p>You can't authentification</p>
             )}
             </div>
         )
