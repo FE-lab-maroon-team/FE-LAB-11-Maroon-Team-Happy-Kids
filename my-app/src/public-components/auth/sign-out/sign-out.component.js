@@ -5,9 +5,8 @@ import { Button } from '../../button';
 
 export const SignOut = () => {
     return(
-        <Button text="SignOut" onClick={() => {
-                firebase.auth().signOut();
-            }} 
+        <Button text="Sign Out" 
+                onClick={() => firebase.auth().signOut()} 
         />
     )
 }

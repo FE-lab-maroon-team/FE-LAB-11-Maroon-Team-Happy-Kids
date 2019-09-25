@@ -2,7 +2,7 @@ import React from 'react';
 import { Textlink } from '../text-link/index'
 import '../header/header.css';
 import { Link } from 'react-router-dom';
-import { Auth } from '../auth';
+// import { Auth } from '../auth';
 
 
 
@@ -15,7 +15,7 @@ export const Header = () =>{
                 <ul className="header_menu__item">
                     <li><Textlink path='/' name="Home"/></li>
                     <li><Textlink path='/events' name="Events"/></li>
-                    <li><Auth /></li>
+                    <li><Textlink path='/login' name="SignIn"/></li>
                 </ul>
             </nav>
         </div>
