@@ -29,9 +29,18 @@ export class Footer extends Component {
 
   // Hide or show the footer.
   handleScroll = () => {
+    const scrollTop = Math.ceil(document.documentElement.scrollTop);
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
     
     const currentScrollPos = window.pageYOffset;
-    const scrollInBottom = document.documentElement.scrollTop === document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const scrollInBottom = scrollTop >= scrollHeight - clientHeight;
+    console.log('scrollTop  ', document.documentElement.scrollTop)
+
+    console.log('scrollHeight  ', document.documentElement.scrollHeight)
+    console.log('clientHeight  ', document.documentElement.clientHeight)
+
+    console.log('scrollInBottom  ', scrollInBottom)
     const visible = !scrollInBottom;
  
     this.setState({
@@ -43,7 +52,8 @@ export class Footer extends Component {
 
   render() {
   return (
-    <div className="footer_main">
+    <>
+    <div className="footer_main"></div>
     <div className={classnames("footer", {
       "footer_hidden": this.state.visible })}>
         <div className="footer_logo_social">
@@ -99,7 +109,8 @@ export class Footer extends Component {
         </ul>
       </div>
     </div>
-    </div>
+    </>
+    // </div>
   )
 }
 }
