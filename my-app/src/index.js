@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
 import { Homepage } from './pages/homepage/index';
-import { Events } from './pages/events/index';
 import { Profile } from './pages/profile/index';
+
+import { Events } from './pages/events/index';
 import styles from './index.module.scss';
-import { Button } from './public-components/button';
 
 function AppRouter(){
     return (  
