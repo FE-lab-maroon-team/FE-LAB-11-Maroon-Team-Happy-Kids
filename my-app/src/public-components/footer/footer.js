@@ -35,12 +35,6 @@ export class Footer extends Component {
     
     const currentScrollPos = window.pageYOffset;
     const scrollInBottom = scrollTop >= scrollHeight - clientHeight;
-    console.log('scrollTop  ', document.documentElement.scrollTop)
-
-    console.log('scrollHeight  ', document.documentElement.scrollHeight)
-    console.log('clientHeight  ', document.documentElement.clientHeight)
-
-    console.log('scrollInBottom  ', scrollInBottom)
     const visible = !scrollInBottom;
  
     this.setState({
@@ -110,7 +104,6 @@ export class Footer extends Component {
       </div>
     </div>
     </>
-    // </div>
   )
 }
 }
