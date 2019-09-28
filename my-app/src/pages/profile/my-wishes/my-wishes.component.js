@@ -31,26 +31,28 @@ export class MyWishes extends Component {
             <div className={styles.mainMyWishes}>
                 <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
+                {wishes.map(({name, price, description, presentUrl, country}) =>(
                     <div className={styles.col_4}>
-                        <img src={wishes.photoUrl} alt="Фото подарунка"></img>
+                        <img src={presentUrl} alt="Фото подарунка"></img>
                         <div className={styles.myWishesDetails}>
-                            <h3>{wishes.name}</h3>
+                            <h3>{name}</h3>
                             <div className={styles.subjectDetails}>
                                 <div className={styles.myWishesText}>
                                     <p>Ціна</p>
                                     <p>Країна виробник</p>
                                 </div>
                                 <div className={styles.myWishesPrice}>
-                                    <p>{wishes.price}</p>
-                                    <p>{wishes.country}</p>
+                                    <p>{price}</p>
+                                    <p>{country}</p>
                                 </div>
                             </div>
                             <div className={styles.myWishesDescribe}>
-                                <p>{wishes.description}</p>
+                                <p>{description}</p>
                                 <Button text="Подарувати" className={styles.button} />
                             </div>
                         </div>
                     </div>
+                    ))}
                 </div>
             </div>
         )
