@@ -8,7 +8,7 @@ import styles from './profile.module.scss';
 return(
     <div className={styles.container_my_wishes}>
         <AboutMeComponent userId = { userId } history = { history }/>
-        <MyWishes />   
+        <MyWishes userId = { userId } history = { history }/>   
     </div>
 )
 }

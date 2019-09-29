@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBnVj3CYFPjuG0kA5z2ocf2PzzSUWjGZyE",
   authDomain: "happy-kids-ffec6.firebaseapp.com",
   databaseURL: "https://happy-kids-ffec6.firebaseio.com",

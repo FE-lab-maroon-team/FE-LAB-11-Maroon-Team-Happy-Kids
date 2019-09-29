@@ -29,9 +29,12 @@ export class Footer extends Component {
 
   // Hide or show the footer.
   handleScroll = () => {
+    const scrollTop = Math.ceil(document.documentElement.scrollTop);
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
     
     const currentScrollPos = window.pageYOffset;
-    const scrollInBottom = document.documentElement.scrollTop === document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const scrollInBottom = scrollTop >= scrollHeight - clientHeight;
     const visible = !scrollInBottom;
  
     this.setState({
@@ -43,7 +46,8 @@ export class Footer extends Component {
 
   render() {
   return (
-    <div className="footer_main">
+    <>
+    <div className="footer_main"></div>
     <div className={classnames("footer", {
       "footer_hidden": this.state.visible })}>
         <div className="footer_logo_social">
@@ -87,7 +91,7 @@ export class Footer extends Component {
           <li><Icon className="footer_contacts_icons" type="phone" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
           <Textlink name='+38(097)1234567' path='' /></li>
           <li><Icon className="footer_contacts_icons" type="mail" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
-          <Textlink name='nadiya.com' path='' /></li>
+          <Textlink name='www.nadiya.com' path='' /></li>
           <li><Icon className="footer_contacts_icons" type="home" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
           <Textlink name='м.Львів, вул.Центральна,1' path='' /></li>
         </ul>
@@ -99,7 +103,7 @@ export class Footer extends Component {
         </ul>
       </div>
     </div>
-    </div>
+    </>
   )
 }
 }

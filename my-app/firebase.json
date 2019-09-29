@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "src",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,6 +12,12 @@
         "key" : "Access-Control-Allow-Origin",
         "value" : "*"
       } ]
-    }]
+    }],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }

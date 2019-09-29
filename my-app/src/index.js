@@ -26,8 +26,9 @@ function AppRouter(){
                         const {id} = match.params;
                         return <Profile userId = {id} />
                     }} />
+                    {/* <Route path="/login" exact component={Auth}></Route> */}
                 </div>
-                <Footer/>
+                <Footer />
             </Router>
     )
 }
