@@ -8,7 +8,6 @@ import { Profile } from './pages/profile/index';
 
 import { Events } from './pages/events/index';
 import styles from './index.module.scss';
-
 function AppRouter(){
     return (  
             <Router>
@@ -21,8 +20,9 @@ function AppRouter(){
                         const {id} = match.params;
                         return <Profile userId = {id} />
                     }} />
+                    {/* <Route path="/login" exact component={Auth}></Route> */}
                 </div>
-                <Footer/>
+                <Footer />
             </Router>
     )
 }
