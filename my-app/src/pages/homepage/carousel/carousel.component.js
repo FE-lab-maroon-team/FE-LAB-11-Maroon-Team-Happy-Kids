@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { withRouter } from "react-router";
+import { db } from "../../../firebase-config";
 import fetchUsers from "../../../libs/helpers/fetchUsers";
 import {
   getUsers,
@@ -9,7 +10,7 @@ import {
 } from "../../../reducers/usersReducer";
 import { store } from "../../../index";
 import { Spinner } from "../../../public-components/spinner";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,17 +20,34 @@ class CarouselComponent extends React.Component {
   state = {
     allUsers: []
   };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     allUsers: []
+  //   };
+  // }
 
   componentDidMount() {
-    const users = fetchUsers();
+    const allUsers = db.collection('users');
+    const usersData = [];
+    allUsers.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        usersData.push(doc.data());
+      })
+      this.setState({
+        allUsers: usersData
+      })
+    })
+    //  fetchUsers();
 
-    if (store.getState().usersReducer.pending) {
-      console.log("Spinner");
-    }
+    // if (store.getState().users.pending) {
+    //   console.log("Spinner");
+    // }
 
-    this.setState({
-      allUsers: store.getState().usersReducer.users
-    });
+    // this.setState({
+    //   allUsers: store.getState().users.users
+    // });
+    // console.log(this.state);
   }
 
   onItemSelected(userId) {
@@ -40,7 +58,7 @@ class CarouselComponent extends React.Component {
     return users.map(user => {
       const { name, photoUrl, id } = user;
       return (
-        <div>
+        <div key={id}>
           <img
             onClick={() => this.onItemSelected(id)}
             src={photoUrl}
@@ -93,13 +111,13 @@ class CarouselComponent extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    error: getUsersError(state),
-    users: getUsers(state),
-    pending: getUsersPending(state)
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     error: getUsersError(state),
+//     users: getUsers(state),
+//     pending: getUsersPending(state)
+//   };
+// };
 
 // connect(
 //   mapStateToProps

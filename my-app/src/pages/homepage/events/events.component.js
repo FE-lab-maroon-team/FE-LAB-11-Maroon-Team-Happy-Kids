@@ -4,10 +4,12 @@ import { Spinner } from "../../../public-components/spinner";
 import styles from "./events.module.scss";
 import { convertToDate } from "../../../libs/helpers/convertToDate";
 import { useEvents } from "../../../libs/helpers/useEvents";
+import { store } from '../../../index';
 
 function Events() {
-  const events = useEvents();
-  const [firstEvent, ...other] = events;
+  useEvents();
+  const allEvents = store.getState().events.events;
+  const [firstEvent, ...other] = allEvents;
 
   if (firstEvent === undefined) {
     return <Spinner />;
