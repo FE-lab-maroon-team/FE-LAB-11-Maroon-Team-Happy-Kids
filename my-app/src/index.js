@@ -5,9 +5,14 @@ import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
 import { Homepage } from './pages/homepage/index';
 import { Profile } from './pages/profile/index';
+import { Provider } from 'react-redux';
+import { configureStore } from './store/configureStore'
 
 import { Events } from './pages/events/index';
 import styles from './index.module.scss';
+
+
+export const store = configureStore();
 
 function AppRouter(){
     return (  
@@ -27,4 +32,9 @@ function AppRouter(){
     )
 }
 
-ReactDOM.render(<AppRouter />,document.querySelector('#root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>,
+    document.querySelector('#root')
+);

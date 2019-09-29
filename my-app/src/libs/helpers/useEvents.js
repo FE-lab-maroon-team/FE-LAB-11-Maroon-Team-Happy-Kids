@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from '../../firebase-config';
+import { productsReducer, getEvents} from '../../reducers/eventsReducer'
+import { loadEventsSuccess } from '../../actions/eventsAction'
 
 export const useEvents = () => {
     const [events, setEvents] = useState([]);
@@ -18,6 +20,5 @@ export const useEvents = () => {
 
         return () => unsubscribe()
     }, [])
-
     return events
 }

@@ -5,10 +5,15 @@ import { Button } from '../../public-components/button'
 import { convertToDate } from  '../../libs/helpers/convertToDate'
 import { useEvents } from '../../libs/helpers/useEvents'
 
+import { configureStore } from '../../store/configureStore';
+import { loadEventsSuccess } from '../../actions/eventsAction'
+
+
 const EventsList = () => {
-
+    const store = configureStore();
     const events = useEvents();
-
+    store.dispatch(loadEventsSuccess(events));
+    console.log(loadEventsSuccess(events));
     return (
         <div className={styles.mainEventsBlock}>
             <h1>Найближчі події</h1>
