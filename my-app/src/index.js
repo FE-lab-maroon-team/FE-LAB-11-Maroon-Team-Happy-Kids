@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Footer } from './public-components/footer';
 import { Header } from './public-components/header'
 import { Homepage } from './pages/homepage/index';
 import { Profile } from './pages/profile/index';
 import { Events } from './pages/events/index';
+import { Provider } from 'react-redux';
 import styles from './index.module.scss';
-import {Auth} from './public-components/auth';
-
+import Auth from './public-components/auth/auth.component';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './public-components/auth/reducers/user-reducer.component';
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 function AppRouter(){
-    return (  
+    return ( 
+        <Provider store={createStoreWithMiddleware(rootReducer)}>
             <Router>
                 <Header />
                 <div className={styles.container}>
@@ -26,6 +31,7 @@ function AppRouter(){
                 </div>
                 <Footer />
             </Router>
+        </Provider>
     )
 }
 

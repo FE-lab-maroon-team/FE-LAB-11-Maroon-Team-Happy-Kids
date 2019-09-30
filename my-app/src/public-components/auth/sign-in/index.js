@@ -1,1 +1,1 @@
-export {SignIn} from './sign-in.component';
+export { GET_USER, googleLogin, facebookLogin, githubLogin} from './sign-in.component';
