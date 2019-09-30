@@ -7,7 +7,7 @@ import { Homepage } from './pages/homepage/index';
 import { Profile } from './pages/profile/index';
 import { Events } from './pages/events/index';
 import styles from './index.module.scss';
-// import {Auth} from './public-components/auth';
+import {Auth} from './public-components/auth';
 
 
 function AppRouter(){
@@ -22,7 +22,7 @@ function AppRouter(){
                         const {id} = match.params;
                         return <Profile userId = {id} />
                     }} />
-                    {/* <Route path="/login" exact component={Auth}></Route> */}
+                    <Route path="/login" exact component={Auth}></Route>
                 </div>
                 <Footer />
             </Router>
