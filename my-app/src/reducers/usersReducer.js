@@ -16,7 +16,8 @@ export function usersReducer(state = initialState, action) {
         case LOAD_USERS_SUCCESS:
             return {
                 ...state,
-                users: action.payload
+                users: action.payload,
+                pending: false
             }
         case LOAD_USERS_ERROR:
             return {

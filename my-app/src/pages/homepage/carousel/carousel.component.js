@@ -1,13 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { withRouter } from "react-router";
-import { db } from "../../../firebase-config";
 import fetchUsers from "../../../libs/helpers/fetchUsers";
-import {
-  getUsers,
-  getUsersPending,
-  getUsersError
-} from "../../../reducers/usersReducer";
 import { store } from "../../../index";
 import { Spinner } from "../../../public-components/spinner";
 import { connect } from "react-redux";
@@ -17,37 +11,24 @@ import "slick-carousel/slick/slick-theme.css";
 import "./carousel.scss";
 
 class CarouselComponent extends React.Component {
-  state = {
-    allUsers: []
-  };
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     allUsers: []
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      allUsers: [],
+      pending: false
+    };
+  }
 
   componentDidMount() {
-    const allUsers = db.collection('users');
-    const usersData = [];
-    allUsers.get().then(snapshot => {
-      snapshot.forEach(doc => {
-        usersData.push(doc.data());
-      })
+    
+    fetchUsers();
+
+    store.subscribe(() => {
       this.setState({
-        allUsers: usersData
-      })
+        allUsers: store.getState().users.users,
+        pending: store.getState().users.pending,
+      });
     })
-    //  fetchUsers();
-
-    // if (store.getState().users.pending) {
-    //   console.log("Spinner");
-    // }
-
-    // this.setState({
-    //   allUsers: store.getState().users.users
-    // });
-    // console.log(this.state);
   }
 
   onItemSelected(userId) {
@@ -72,6 +53,9 @@ class CarouselComponent extends React.Component {
   }
 
   render() {
+    if (store.getState().users.pending) {
+      return <Spinner />;
+    }
     const settings = {
       slidesToShow: 3,
       infinite: false,
@@ -110,17 +94,5 @@ class CarouselComponent extends React.Component {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     error: getUsersError(state),
-//     users: getUsers(state),
-//     pending: getUsersPending(state)
-//   };
-// };
-
-// connect(
-//   mapStateToProps
-// )(CarouselComponent);
 
 export const Carousel = withRouter(CarouselComponent);
