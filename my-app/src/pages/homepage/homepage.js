@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { GoogleMap } from './google-map';
 import styles from './homepage.module.scss';
 import { Carousel } from './carousel';
