@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./events.module.scss";
 import { Button } from "../../public-components/button";
-
+import { loadEventsRequest, loadEventsSuccess, loadEventsError, fetchEvents } from "../../actions/eventsAction";
 import { convertToDate } from "../../libs/helpers/convertToDate";
-import { useEvents } from "../../libs/helpers/useEvents";
-import { store } from "../../index";
+import { getEvents, getEventsPending, getEventsError } from "../../reducers/eventsReducer";
+import { connect } from "react-redux";
 
-const EventsList = () => {
-  useEvents();
-  const events = store.getState().events.events;
-
+function EventsListComponent(props) {
+  useEffect(() => {
+    props.fetchEvents();
+  }, [])
+  const {events} = props;
   return (
     <div className={styles.mainEventsBlock}>
       <h1>Найближчі події</h1>
@@ -40,4 +41,17 @@ const EventsList = () => {
   );
 };
 
-export default EventsList;
+const mapStateToProps = (state) => ({
+  events: getEvents(state),
+  pending: getEventsPending(state),
+  error: getEventsError(state)
+})
+
+const mapDispatchToProps = {
+  fetchEvents,
+  loadEventsRequest,
+  loadEventsSuccess,
+  loadEventsError
+}
+
+export const Events = connect(mapStateToProps, mapDispatchToProps)(EventsListComponent);

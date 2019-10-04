@@ -1,4 +1,4 @@
-import {LOAD_EVENTS_PENDING, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_ERROR} from '../actions/eventsAction';
+import {LOAD_EVENTS_REQUEST, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_ERROR} from '../actions/eventsAction';
 
 const initialState = {
     pending: false,
@@ -8,7 +8,7 @@ const initialState = {
 
 export function eventsReducer(state = initialState, action) {
     switch(action.type) {
-        case LOAD_EVENTS_PENDING: 
+        case LOAD_EVENTS_REQUEST: 
             return {
                 ...state,
                 pending: true
@@ -23,13 +23,16 @@ export function eventsReducer(state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                error: action.error
+                error: action.payload
             }
         default: 
             return state;
     }
 }
 
-export const getEvents = state => state.events;
-export const getEventsPending = state => state.pending;
-export const getEventsError = state => state.error;
+
+const getEventsReducer = state => state.events;
+
+export const getEvents = state => getEventsReducer(state).events;
+export const getEventsPending = state => getEventsReducer(state).pending;
+export const getEventsError = state => getEventsReducer(state).error;

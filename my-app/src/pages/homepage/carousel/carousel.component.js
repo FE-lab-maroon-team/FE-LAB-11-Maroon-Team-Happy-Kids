@@ -1,58 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { withRouter } from "react-router";
-import { db } from "../../../firebase-config";
-import fetchUsers from "../../../libs/helpers/fetchUsers";
-import {
-  getUsers,
-  getUsersPending,
-  getUsersError
-} from "../../../reducers/usersReducer";
-import { store } from "../../../index";
-import { Spinner } from "../../../public-components/spinner";
 import { connect } from "react-redux";
-
+import { compose } from "redux";
+import { getUsers, getUsersPending, getUsersError } from "../../../reducers/usersReducer";
+import { loadUsersRequest, loadUsersSuccess, loadUsersError } from '../../../actions/usersAction';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carousel.scss";
 
 class CarouselComponent extends React.Component {
-  state = {
-    allUsers: []
-  };
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     allUsers: []
-  //   };
-  // }
-
-  componentDidMount() {
-    const allUsers = db.collection('users');
-    const usersData = [];
-    allUsers.get().then(snapshot => {
-      snapshot.forEach(doc => {
-        usersData.push(doc.data());
-      })
-      this.setState({
-        allUsers: usersData
-      })
-    })
-    //  fetchUsers();
-
-    // if (store.getState().users.pending) {
-    //   console.log("Spinner");
-    // }
-
-    // this.setState({
-    //   allUsers: store.getState().users.users
-    // });
-    // console.log(this.state);
-  }
 
   onItemSelected(userId) {
     this.props.history.push(`/profile/${userId}`);
-  }
+  };
 
   renderItems(users) {
     return users.map(user => {
@@ -69,7 +30,7 @@ class CarouselComponent extends React.Component {
         </div>
       );
     });
-  }
+  };
 
   render() {
     const settings = {
@@ -106,21 +67,25 @@ class CarouselComponent extends React.Component {
     };
 
     return (
-      <Slider {...settings}>{this.renderItems(this.state.allUsers)}</Slider>
+      <Slider {...settings}>{this.renderItems(this.props.users)}</Slider>
     );
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     error: getUsersError(state),
-//     users: getUsers(state),
-//     pending: getUsersPending(state)
-//   };
-// };
+const mapStateToProps = (state) => ({
+  users: getUsers(state),
+  pending: getUsersPending(state),
+  error: getUsersError(state)
+})
 
-// connect(
-//   mapStateToProps
-// )(CarouselComponent);
+const mapDispatchToProps = {
+  loadUsersRequest,
+  loadUsersSuccess,
+  loadUsersError
+}
 
-export const Carousel = withRouter(CarouselComponent);
+export const Carousel = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter
+)(CarouselComponent)
+
