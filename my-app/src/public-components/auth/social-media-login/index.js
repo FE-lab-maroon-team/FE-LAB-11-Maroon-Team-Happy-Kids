@@ -1,1 +1,0 @@
-export {SocialMediaLogin} from './social-media-login.component';

@@ -29,6 +29,12 @@
     list-style-type: none;
     display: inline-block;
 }
+.text_link{
+    color: rgb(233, 231, 231);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 @media screen and (max-width: 560px){
    .header{
        display: flex;

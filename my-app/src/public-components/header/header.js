@@ -1,12 +1,21 @@
 import React from 'react';
 import { Textlink } from '../text-link/index'
-import '../header/header.css';
+import './header.css';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import { signOut } from '../auth/actions';
 
 
+const Header = (props) =>{
+    const {isAuthenticated} = props;
+    console.log(isAuthenticated);
+    const userLink = (
+        <li><span className="text_link" onClick={props.signOut}>Вийти</span></li>
+    );
 
-export const Header = () =>{
-
+    const guestLink = (
+        <li><Textlink name="Увійти" path='/login' /></li>
+    );
     return(
         <div className="header">
             <Link to='/'><div className="header_logo"></div></Link>
@@ -14,9 +23,19 @@ export const Header = () =>{
                 <ul className="header_menu__item">
                     <li><Textlink path='/' name="Home"/></li>
                     <li><Textlink path='/events' name="Events"/></li>
-                    <li><Textlink path='/login' name="SignIn"/></li>
+                    {isAuthenticated.isAuthorized ? userLink : guestLink}
                 </ul>
             </nav>
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state
+    }
+}
+const mapDispatchToProps = {
+    signOut
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

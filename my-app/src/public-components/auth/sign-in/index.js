@@ -1,1 +1,0 @@
-export { GET_USER, googleLogin, facebookLogin, githubLogin} from './sign-in.component';

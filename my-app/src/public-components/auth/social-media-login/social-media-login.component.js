@@ -1,20 +1,36 @@
 import React from 'react';
-import styles from './social-media-login.module.scss';
-
-export const SocialMediaLogin = (props) => {
-    const {googleLogin, facebookLogin, githubLogin} = props;
-
+import './social-media-login.scss';
+import {googleProvider, facebookProvider, githubProvider } from '../../../firebase-config';
+import {connect} from 'react-redux'
+const SocialMediaLogin = (props) => {
+    const {signIn} = props;
+    const {user} = props;
     return(
-        <div className={styles.container_socialMedia}>
-            <a href="#" className="btn btn_google" onClick={googleLogin}>
-                <span className="fa fa-google">Sign in Google</span>
-            </a>
-            <a href="#" className="btn btn_facebook" onClick={facebookLogin}>
-                <span className="fa fa-facebook">Sign in Facebook</span>
-            </a>
-            <a href="#" className="btn btn_github" onClick={githubLogin}>
-                <span className="fa fa-github">Sign in Github</span>
-            </a>
-        </div>
+        <>{user.isAuthorized ? (
+            <div className="container_socialMedia">
+                <div><h3>Ваш email:</h3><p>{user.user.email}</p></div>  
+                <div><h3>Вітаємо:</h3><p>{user.user.name}</p></div> 
+            </div>       
+            ) : (
+            <div className="container_socialMedia">
+                <div className="btn btn_google" onClick={() => signIn(googleProvider)}>
+                    <span className="fa fa-google">Sign in Google</span>
+                </div>
+                <div className="btn btn_facebook" onClick={() => signIn(facebookProvider)}>
+                    <span className="fa fa-facebook">Sign in Facebook</span>
+                </div>
+                <div className="btn btn_github" onClick={() => signIn(githubProvider)}>
+                    <span className="fa fa-github">Sign in Github</span>
+                </div>
+            </div>
+            )}
+        </>
     )
 };
+const mapStateToProps = (state) => {
+    return{
+        user: state
+    }
+}
+
+export default connect(mapStateToProps)(SocialMediaLogin);

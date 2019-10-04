@@ -1,23 +1,20 @@
 import React, {Component} from 'react';
-import { SocialMediaLogin } from './social-media-login';
+import SocialMediaLogin from './social-media-login/social-media-login.component';
 import {connect} from 'react-redux';
-import { googleLogin, facebookLogin, githubLogin } from './sign-in';
+import { signIn } from './actions';
 
 class Auth extends Component{
     render(){
         return(
                 <div>
-                    <SocialMediaLogin {...this.props} />
+                    <SocialMediaLogin signIn = {this.props.signIn} />
                 </div>
         )
     }
     
 }
-const mapStateToProps = (state) => {
-    console.log(state);
-    return {
-
-    }
+const mapDispatchToProps = {
+    signIn
 }
 
-export default connect(mapStateToProps,{ googleLogin,  facebookLogin, githubLogin})(Auth);
+export default connect(null ,mapDispatchToProps)(Auth);
