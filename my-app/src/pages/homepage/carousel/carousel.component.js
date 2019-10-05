@@ -2,6 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import { withRouter } from 'react-router';
 import { compose } from 'redux';
+import { getUsers } from '../../../redux/actions/user-action'
+import { connect } from "react-redux";
 import { getUsersRequest , getUsersSuccess , getUsersError } from '../../../redux/reducer/users';
 import { userRequest , userSuccess , userFailure } from '../../../redux/actions/user-action'
 
@@ -16,7 +18,6 @@ class CarouselComponent extends React.Component {
   onItemSelected(userId) {
     this.props.history.push(`/profile/${userId}`);
   }
-
   renderItems(users) {
     return users.map(user => {
       const {name, photoUrl, id} = user;
@@ -25,9 +26,9 @@ class CarouselComponent extends React.Component {
           <img onClick={() => this.onItemSelected(id)} src={photoUrl} alt="users_photo" id="slide-image"></img>
           <h3>{name}</h3>
         </div>
-      )
-    })
-  }
+      );
+    });
+  };
 
   render() {
     const settings = {
@@ -65,7 +66,7 @@ class CarouselComponent extends React.Component {
 
     return (
       <Slider {...settings}>
-      {this.renderItems(this.state.allUsers)}
+      {this.renderItems(this.props.users)}
       </Slider>
     );
   }
@@ -84,4 +85,4 @@ const mapDispatchToProps = {
   userFailure
 }
 
-export const Carousel = compose(mapStateToProps,mapDispatchToProps,withRouter)(CarouselComponent);
+export const Carousel = compose(connect(mapStateToProps,mapDispatchToProps),withRouter)(CarouselComponent);

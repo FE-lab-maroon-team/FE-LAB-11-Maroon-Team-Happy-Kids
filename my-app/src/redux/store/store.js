@@ -1,13 +1,15 @@
 import thunk from 'redux-thunk'
 import { createStore , applyMiddleware } from 'redux';
 import { rootReducer } from '../reducer/combineReducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 
-export function mainStore(initialState){
+export function configureStore(initialState){
+    const compose = composeWithDevTools(applyMiddleware(thunk))
     const store = createStore(
         rootReducer,
         initialState,
-        applyMiddleware(thunk)
+        compose
     );
     return store
 }

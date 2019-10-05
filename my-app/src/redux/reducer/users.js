@@ -16,6 +16,7 @@ export function usersReducer (state = initialState , action) {
         case FETCH_USER_SUCCESS:
             return{
                 ...state,
+                users:action.payload,
                 loading:false
             }
         case FETCH_USER_FAILURE:
@@ -32,6 +33,6 @@ export function usersReducer (state = initialState , action) {
 
 const userReducer = state => state.users;
 
-export const getUsersRequest = state =>usersReducer(state).loading;
-export const getUsersSuccess = state =>usersReducer(state).users;
-export const getUsersError = state =>usersReducer(state).eror;
+export const getUsersRequest = state =>userReducer(state).loading;
+export const getUsersSuccess = state =>userReducer(state).users;
+export const getUsersError = state =>userReducer(state).eror;

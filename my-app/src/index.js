@@ -7,12 +7,12 @@ import { Homepage } from './pages/homepage/index';
 import { Profile } from './pages/profile/index';
 
 import { Provider } from 'react-redux';
-import { mainStore } from './redux/store/store';
+import { configureStore } from './redux/store/store';
 
 import { Events } from './pages/events/index';
 import styles from './index.module.scss';
 
-export const store = mainStore();
+export const store = configureStore();
 function AppRouter(){
     return (  
             <Router>
@@ -32,5 +32,5 @@ function AppRouter(){
     )
 }
 
-ReactDOM.render(<Provider store = {mainStore}><AppRouter />
+ReactDOM.render(<Provider store = {store}><AppRouter />
 </Provider>,document.querySelector('#root'));
