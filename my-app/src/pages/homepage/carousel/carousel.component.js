@@ -1,31 +1,18 @@
 import React from "react";
 import Slider from "react-slick";
-import { db } from '../../../firebase-config';
 import { withRouter } from 'react-router';
+import { compose } from 'redux';
+import { getUsersRequest , getUsersSuccess , getUsersError } from '../../../redux/reducer/users';
+import { userRequest , userSuccess , userFailure } from '../../../redux/actions/user-action'
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './carousel.scss';
+import { from } from "rxjs";
 
 class CarouselComponent extends React.Component {
 
-  state = {
-    allUsers: []
-  }
-
-  componentDidMount() {
-    const allUsers = db.collection('users');
-    const usersData = [];
-    allUsers.get().then(snapshot => {
-      snapshot.forEach(doc => {
-        usersData.push(doc.data());
-      })
-      this.setState({
-        allUsers: usersData
-      })
-    })
-  }
-
+  
   onItemSelected(userId) {
     this.props.history.push(`/profile/${userId}`);
   }
@@ -84,4 +71,17 @@ class CarouselComponent extends React.Component {
   }
 }
 
-export const Carousel = withRouter(CarouselComponent);
+const mapStateToProps = (state) => ({
+  users:getUsersSuccess(state),
+  loading:getUsersRequest(state),
+  error:getUsersError(state)
+  
+})
+
+const mapDispatchToProps = {
+  userRequest,
+  userSuccess,
+  userFailure
+}
+
+export const Carousel = compose(mapStateToProps,mapDispatchToProps,withRouter)(CarouselComponent);
