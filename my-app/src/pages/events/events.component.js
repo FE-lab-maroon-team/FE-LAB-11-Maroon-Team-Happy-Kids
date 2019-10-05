@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./events.module.scss";
 import { Button } from "../../public-components/button";
-import { loadEventsRequest, loadEventsSuccess, loadEventsError, fetchEvents } from "../../actions/eventsAction";
+import { loadEventsRequest, loadEventsSuccess, loadEventsError, fetchEvents } from "../../actions";
 import { convertToDate } from "../../libs/helpers/convertToDate";
 import { getEvents, getEventsPending, getEventsError } from "../../reducers/eventsReducer";
 import { connect } from "react-redux";

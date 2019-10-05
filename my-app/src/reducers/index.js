@@ -4,5 +4,5 @@ import { usersReducer } from './usersReducer';
 
 export const allReducers = combineReducers({
     events: eventsReducer,
-    users: usersReducer
+    items: usersReducer
 });

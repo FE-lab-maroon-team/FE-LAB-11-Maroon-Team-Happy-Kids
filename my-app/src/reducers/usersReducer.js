@@ -30,7 +30,7 @@ export function usersReducer(state = initialState, action) {
 }
 
 
-const getUsersReducer = state => state.users;
+const getUsersReducer = state => state.items;
 
 export const getUsers = state => getUsersReducer(state).users;
 export const getUsersPending = state => getUsersReducer(state).pending;

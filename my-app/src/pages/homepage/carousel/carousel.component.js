@@ -15,15 +15,15 @@ class CarouselComponent extends React.Component {
     this.props.history.push(`/profile/${userId}`);
   };
 
-  renderItems(users) {
-    return users.map(user => {
-      const { name, photoUrl, id } = user;
+  renderItems(items) {
+    return items.map(item => {
+      const { name, photoUrl, id } = item;
       return (
         <div key={id}>
           <img
             onClick={() => this.onItemSelected(id)}
             src={photoUrl}
-            alt="users_photo"
+            alt="item_photo"
             id="slide-image"
           ></img>
           <h3>{name}</h3>
@@ -67,13 +67,13 @@ class CarouselComponent extends React.Component {
     };
 
     return (
-      <Slider {...settings}>{this.renderItems(this.props.users)}</Slider>
+      <Slider {...settings}>{this.renderItems(this.props.items)}</Slider>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  users: getUsers(state),
+  items: getUsers(state),
   pending: getUsersPending(state),
   error: getUsersError(state)
 })

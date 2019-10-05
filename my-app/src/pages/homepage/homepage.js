@@ -5,8 +5,7 @@ import { Carousel } from './carousel';
 import { Description } from './description';
 import { Event } from './events';
 import { connect } from 'react-redux';
-import { fetchEvents } from '../../actions/eventsAction'
-import { fetchUsers } from '../../actions/usersAction'
+import { fetchEvents, fetchUsers } from '../../actions';
 
 
 const HomepageComponent = (props) => {
