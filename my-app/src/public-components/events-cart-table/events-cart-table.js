@@ -70,4 +70,4 @@ const mapStateToProps = ({ cartItems, eventsTotal, eventsCurrentTotal }) => {
     }
   };
   
-  export default connect(mapStateToProps, mapDispatchToProps)(EventCartTable);
+export default connect(mapStateToProps, mapDispatchToProps)(EventCartTable);
