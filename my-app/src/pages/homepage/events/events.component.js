@@ -3,15 +3,15 @@ import { Button } from "../../../public-components/button";
 import { Spinner } from "../../../public-components/spinner";
 import styles from "./events.module.scss";
 import { convertToDate } from "../../../libs/helpers/convertToDate";
-import { getEvents, getEventsPending, getEventsError } from '../../../reducers/eventsReducer';
-import { connect } from 'react-redux'
+import { useEvents } from "../../../libs/helpers/useEvents";
 
-function EventComponent({ events }) {
+function Events() {
+  const events = useEvents();
+  const [firstEvent, ...other] = events;
 
-  if (events.length === 0) {
+  if (firstEvent === undefined) {
     return <Spinner />;
   }
-  const firstEvent = events[0];
   return (
     <div className={styles.eventBlock}>
       <div className={styles.eventImage}>
@@ -38,12 +38,4 @@ function EventComponent({ events }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  events: getEvents(state),
-  pending: getEventsPending(state),
-  error: getEventsError(state)
-})
-
-const mapDispatchToProps = {}
-
-export const Event = connect(mapStateToProps, mapDispatchToProps)(EventComponent);
+export default Events;

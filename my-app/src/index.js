@@ -1,41 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
-import { Footer } from './public-components/footer';
-import { Header } from './public-components/header'
-import { Homepage } from './pages/homepage/index';
-import { Profile } from './pages/profile/index';
 import { Provider } from 'react-redux';
-import { configureStore } from './store/configureStore'
+import ErrorBoundry from './public-components/error-boundry';
+import EventsService from './services/events-service';
+import { EventsServiceProvider, EventsServiceConsumer } from './public-components/events-service-context';
+import store from './store/store';
+import  App from './public-components/app';
 
-import { Events } from './pages/events/index';
-import styles from './index.module.scss';
 
+const eventsService = new EventsService();
 
-export const store = configureStore();
-
-function AppRouter(){
-    return (  
-            <Router>
-                <Header />
-                <div className={styles.container}>
-                    <Route path="/" exact component={Homepage}></Route>
-                    <Route path="/events" exact component={Events}></Route>
-                    <Route path="/profile/:id" 
-                    render={({match}) => {
-                        const {id} = match.params;
-                        return <Profile userId = {id} />
-                    }} />
-                    {/* <Route path="/login" exact component={Auth}></Route> */}
-                </div>
-                <Footer />
-            </Router>
-    )
-}
 
 ReactDOM.render(
     <Provider store={store}>
-        <AppRouter />
+        <ErrorBoundry>
+            <EventsServiceProvider value={eventsService}>
+                <Router>
+                    <App />
+                </Router>
+            </EventsServiceProvider>
+        </ErrorBoundry>
     </Provider>,
     document.querySelector('#root')
 );

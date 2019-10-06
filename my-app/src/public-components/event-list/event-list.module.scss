@@ -1,0 +1,23 @@
+$basic-color: #0c9dc9;
+
+
+.eventBlock {
+    background-color: $basic-color;
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    box-sizing: border-box;
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+}
+
+.example {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    margin: 20px 0;
+}

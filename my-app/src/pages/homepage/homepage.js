@@ -1,33 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GoogleMap } from './google-map';
-import styles from './homepage.module.scss';
 import { Carousel } from './carousel';
 import { Description } from './description';
-import { Event } from './events';
-import { connect } from 'react-redux';
-import { fetchEvents, fetchUsers } from '../../actions';
+import { Events } from './events';
 
 
-const HomepageComponent = (props) => {
-    useEffect(() => {
-        props.fetchUsers();
-    }, [])
-    useEffect(() => {
-        props.fetchEvents();
-    }, [])
+export const Homepage = (props) => {
     return (
         <div>
             <Description />
-            <Event />
+            <Events />
             <Carousel />
             <GoogleMap />
         </div>
     )
 }
-
-const mapDispatchToProps = {
-    fetchEvents,
-    fetchUsers
-}
-
-export const Homepage = connect(null, mapDispatchToProps)(HomepageComponent);
