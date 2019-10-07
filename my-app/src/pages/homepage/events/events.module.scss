@@ -1,0 +1,78 @@
+$basic-color: #0c9dc9;
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+h2 {
+  font-size: 2.5em;
+}
+.eventBlock {
+  display: flex;
+  flex-direction: row;
+  background-color: $basic-color;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .eventDescription {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 45px;
+    div {
+      h2 {
+        padding: 25px 0;
+        @media screen and (max-width: 768px) {
+          text-align: center;
+        }
+      }
+      div {
+        padding-bottom: 25px;
+        p {
+          padding-bottom: 7px;
+        }
+      }
+    }
+  }
+  .eventImage {
+    display: flex;
+    flex-grow: 1;
+    width: 50%;
+    @media screen and (max-width: 768px) {
+      width: auto;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 35px;
+    }
+    @media screen and (max-width: 600px) {
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 0;
+    }
+    img {
+      overflow: hidden;
+      object-fit: cover;
+      object-position: 60% 50%;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 0;
+  @media screen and (max-width: 768px) {
+    justify-content: space-around;
+  }
+}

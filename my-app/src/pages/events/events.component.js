@@ -1,9 +1,27 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from 'react'
+import styles from './events.module.scss'
+import EventCartTable from '../../public-components/events-cart-table';
+import EventList from '../../public-components/event-list';
 
-export default class Event extends Component {
-  render () {
+
+const EventsListHeader = () => {
     return (
-      <div>Hello world!</div>
-    )
-  }
-}
+        <div className={styles.mainEventsBlock}>
+            <h1>Найближчі події</h1>
+        </div> 
+    );
+};
+
+
+
+const EventsList = () => {
+    return (
+        <>
+            <EventsListHeader />
+            <EventList />
+            <EventCartTable />
+        </>  
+    );
+};
+
+export default EventsList;
