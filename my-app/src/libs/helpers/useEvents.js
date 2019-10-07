@@ -19,7 +19,5 @@ export const useEvents = () => {
         return () => unsubscribe()
     }, [])
 
-    console.log(events);
-
     return events
 }
