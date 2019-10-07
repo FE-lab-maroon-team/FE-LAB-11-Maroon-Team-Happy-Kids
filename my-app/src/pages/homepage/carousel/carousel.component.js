@@ -79,9 +79,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  loadUsersRequest,
-  loadUsersSuccess,
-  loadUsersError
+  
 }
 
 export const Carousel = compose(

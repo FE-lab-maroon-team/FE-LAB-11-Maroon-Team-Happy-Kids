@@ -48,10 +48,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  fetchEvents,
-  loadEventsRequest,
-  loadEventsSuccess,
-  loadEventsError
+  fetchEvents
 }
 
 export const Events = connect(mapStateToProps, mapDispatchToProps)(EventsListComponent);
