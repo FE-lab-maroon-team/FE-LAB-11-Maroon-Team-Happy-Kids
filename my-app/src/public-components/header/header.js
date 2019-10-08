@@ -3,12 +3,11 @@ import { Textlink } from '../text-link/index'
 import './header.css';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import { signOut } from '../auth/actions';
+import { signOut } from '../../actions';
 
 
 const Header = (props) =>{
     const {isAuthenticated} = props;
-    console.log(isAuthenticated);
     const userLink = (
         <li><span className="text_link" onClick={props.signOut}>Вийти</span></li>
     );
@@ -23,7 +22,7 @@ const Header = (props) =>{
                 <ul className="header_menu__item">
                     <li><Textlink path='/' name="Home"/></li>
                     <li><Textlink path='/events' name="Events"/></li>
-                    {isAuthenticated.isAuthorized ? userLink : guestLink}
+                    {isAuthenticated.user.isAuthorized ? userLink : guestLink}
                 </ul>
             </nav>
         </div>

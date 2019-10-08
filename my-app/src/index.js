@@ -5,18 +5,17 @@ import { Footer } from './public-components/footer';
 import Header from './public-components/header/header'
 import { Homepage } from './pages/homepage/index';
 import { Profile } from './pages/profile/index';
-import { Events } from './pages/events/index';
 import { Provider } from 'react-redux';
+import { Events } from './pages/events/index';
 import styles from './index.module.scss';
 import Auth from './public-components/auth/auth.component';
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './public-components/auth/reducers/user-reducer.component';
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+import { configureStore } from './store/configureStore'
+
+export const store = configureStore();
+
 
 function AppRouter(){
     return ( 
-        <Provider store={createStoreWithMiddleware(rootReducer)}>
             <Router>
                 <Header />
                 <div className={styles.container}>
@@ -31,8 +30,12 @@ function AppRouter(){
                 </div>
                 <Footer />
             </Router>
-        </Provider>
     )
 }
 
-ReactDOM.render(<AppRouter />,document.querySelector('#root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>,
+    document.querySelector('#root')
+);

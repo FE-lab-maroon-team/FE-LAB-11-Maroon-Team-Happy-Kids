@@ -6,10 +6,10 @@ const SocialMediaLogin = (props) => {
     const {signIn} = props;
     const {user} = props;
     return(
-        <>{user.isAuthorized ? (
+        <>{user.user.isAuthorized ? (
             <div className="container_socialMedia">
-                <div><h3>Ваш email:</h3><p>{user.user.email}</p></div>  
-                <div><h3>Вітаємо:</h3><p>{user.user.name}</p></div> 
+                <div><h3>Ваш email:</h3><p>{user.user.users.email}</p></div>  
+                <div><h3>Вітаємо:</h3><p>{user.user.users.name}</p></div> 
             </div>       
             ) : (
             <div className="container_socialMedia">
