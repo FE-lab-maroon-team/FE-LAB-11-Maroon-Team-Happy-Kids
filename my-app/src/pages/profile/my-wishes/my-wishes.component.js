@@ -32,7 +32,7 @@ export class MyWishes extends Component {
                 <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
                 {wishes.map(({name, price, description, presentUrl, country}) =>(
-                    <div className={styles.col_4}>
+                    <div className={styles.col_4} key={price}>
                         <img src={presentUrl} alt="Фото подарунка"></img>
                         <div className={styles.myWishesDetails}>
                             <h3>{name}</h3>
