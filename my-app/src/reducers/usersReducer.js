@@ -1,4 +1,4 @@
-import { LOAD_USERS_SUCCESS, LOAD_USERS_ERROR, LOAD_USERS_REQUEST } from '../actions/usersAction'
+import { LOAD_USERS_SUCCESS, LOAD_USERS_ERROR, LOAD_USERS_REQUEST,SIGNOUT_SUCCESS } from '../actions'
 
 const initialState = {
     pending: false,
@@ -11,19 +11,28 @@ export function usersReducer(state = initialState, action) {
         case LOAD_USERS_REQUEST:
             return {
                 ...state,
+                isAuthorized: false,
+                loading: true,
                 pending: true
             }
         case LOAD_USERS_SUCCESS:
             return {
                 ...state,
+                isAuthorized: true,
+                loading: false,
+                pending: false,
                 users: action.payload,
-                pending: false
             }
         case LOAD_USERS_ERROR:
             return {
                 ...state,
+                loading: false,
+                isAuthorized: false,
                 error: action.payload
             }
+        case SIGNOUT_SUCCESS:{
+            return initialState
+        }
         default: 
             return state;
     }
