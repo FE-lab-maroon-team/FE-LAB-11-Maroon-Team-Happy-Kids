@@ -22,7 +22,7 @@ const Header = (props) =>{
                 <ul className="header_menu__item">
                     <li><Textlink path='/' name="Home"/></li>
                     <li><Textlink path='/events' name="Events"/></li>
-                    {isAuthenticated.user.isAuthorized ? userLink : guestLink}
+                    {isAuthenticated.auth.isAuthorized ? userLink : guestLink}
                 </ul>
             </nav>
         </div>

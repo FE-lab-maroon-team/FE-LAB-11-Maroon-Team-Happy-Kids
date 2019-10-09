@@ -4,10 +4,13 @@ import { Carousel } from './carousel';
 import { Description } from './description';
 import { Event } from './events';
 import { connect } from 'react-redux';
-import { fetchEvents} from '../../actions';
+import { fetchEvents, fetchUsers} from '../../actions';
 
 
 const HomepageComponent = (props) => {
+    useEffect(() => {
+        props.fetchUsers();
+    }, [])
     useEffect(() => {
         props.fetchEvents();
     }, [])
@@ -22,7 +25,8 @@ const HomepageComponent = (props) => {
 }
 
 const mapDispatchToProps = {
-    fetchEvents
+    fetchEvents,
+    fetchUsers
 }
 
 export const Homepage = connect(null, mapDispatchToProps)(HomepageComponent);
