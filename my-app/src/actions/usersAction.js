@@ -1,9 +1,8 @@
-import { db, auth } from '../firebase-config';
+import { db } from '../firebase-config';
 
 export const LOAD_USERS_SUCCESS = 'LOAD_USERS_SUCCESS';
 export const LOAD_USERS_REQUEST = 'LOAD_USERS_REQUEST';
 export const LOAD_USERS_ERROR = 'LOAD_USERS_ERROR';
-export const SIGNOUT_SUCCESS = 'sign-out_success';
 
 export const loadUsersRequest = () => {
   return {
@@ -43,31 +42,3 @@ export const fetchUsers = () => (dispatch) => {
     });
 }
 
-export const signIn =  (provider) => (dispatch) => {
-    dispatch({
-        type: LOAD_USERS_REQUEST
-    });
-    auth.signInWithPopup(provider)
-    .then(({user}) => {
-            dispatch({
-                type: LOAD_USERS_SUCCESS,
-                payload: {name: user.displayName, email: user.email}
-            })
-        }
-    )
-    .catch(error => {
-        dispatch({
-            type: LOAD_USERS_ERROR,
-            payload: error
-        })
-    })
-};
-
-export const signOut = () => (dispatch) => {
-    auth.signOut()
-    .then(() => {
-        dispatch({
-            type: SIGNOUT_SUCCESS
-        })
-    })
-}
