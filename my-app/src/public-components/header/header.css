@@ -29,29 +29,35 @@
     list-style-type: none;
     display: inline-block;
 }
+.text_link{
+    color: rgb(233, 231, 231);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 @media screen and (max-width: 560px){
-   .header{
-       display: flex;
-       flex-direction: column;
-   }
-   .header_menu{
-       width: 100%;
-   }
-   .header_menu__item{
-       padding: 0;
-   }
-   .header_menu__item >li{
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       height:40px;
-       width:100%;
-   }
-   .header_menu__item > li:hover{
-       background-color:#154360;
-       border-radius: 5px;
-   }
-   li:nth-last-child(1):hover{
+    .header{
+        display: flex;
+        flex-direction: column;
+    }
+    .header_menu{
+        width: 100%;
+    }
+    .header_menu__item{
+        padding: 0;
+    }
+    .header_menu__item >li{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:40px;
+        width:100%;
+    }
+    .header_menu__item > li:hover{
+        background-color:#154360;
+        border-radius: 5px;
+    }
+    li:nth-last-child(1):hover{
     background-color: transparent;
- } 
+    } 
 }

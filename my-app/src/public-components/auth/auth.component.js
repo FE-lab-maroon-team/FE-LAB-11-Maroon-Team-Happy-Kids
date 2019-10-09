@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
-// import firebase from "../../firebase-config";
-// import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-// import "firebase/auth";
-import { SignIn } from './sign-in';
+import SocialMediaLogin from './social-media-login/social-media-login.component';
+import {connect} from 'react-redux';
+import { signIn } from '../../actions';
 
-export class Auth extends Component{
+class Auth extends Component{
     render(){
         return(
-            <SignIn />
+                <div>
+                    <SocialMediaLogin signIn = {this.props.signIn} />
+                </div>
         )
     }
     
 }
+const mapDispatchToProps = {
+    signIn
+}
+
+export default connect(null ,mapDispatchToProps)(Auth);
