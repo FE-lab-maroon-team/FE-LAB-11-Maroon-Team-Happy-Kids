@@ -3,7 +3,7 @@ import { Icon } from 'antd';
 import classnames from "classnames";
 
 import { Textlink } from '../text-link'
-import className from './footer.css';
+import './footer.css';
 
 
 export class Footer extends Component {

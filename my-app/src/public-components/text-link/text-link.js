@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classes from './text-link.css';
+import './text-link.css';
 
 
 

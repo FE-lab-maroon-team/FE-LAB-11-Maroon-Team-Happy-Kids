@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 function EventsListComponent(props) {
   useEffect(() => {
     props.fetchEvents();
-  }, [])
+  }, [props]);
   const {events} = props;
   return (
     <div className={styles.mainEventsBlock}>
@@ -17,7 +17,7 @@ function EventsListComponent(props) {
       {events.map(event => (
         <div key={event.id} className={styles.eventBlock}>
           <div className={styles.eventImage}>
-            <img src={event.imageUrl}></img>
+            <img src={event.imageUrl} alt={event.imageUrl}></img>
           </div>
 
           <div key={event.id} className={styles.eventDescription}>

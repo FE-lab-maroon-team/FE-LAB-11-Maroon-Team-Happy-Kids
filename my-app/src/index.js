@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { Events } from './pages/events/index';
 import styles from './index.module.scss';
 import Auth from './public-components/auth/auth.component';
-import { configureStore } from './store/configureStore'
+import { configureStore } from './store/configureStore';
 
 export const store = configureStore();
 

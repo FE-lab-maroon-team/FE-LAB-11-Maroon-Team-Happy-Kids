@@ -9,11 +9,11 @@ import { fetchEvents, fetchUsers} from '../../actions';
 
 const HomepageComponent = (props) => {
     useEffect(() => {
-        props.fetchUsers();
-    }, [])
+        props.fetchUsers()
+    }, [props]);
     useEffect(() => {
-        props.fetchEvents();
-    }, [])
+        props.fetchEvents()
+    }, [props]);
     return (
         <div>
             <Description />
