@@ -27,6 +27,14 @@ export class MyWishes extends Component {
             return <Spinner />
         }
         const {wishes} = this.state.user;
+        if (wishes.length === undefined) {
+            return (
+                <div>
+                    <h3>Вибачте. Побажань для цієї дитини не знайдено.</h3>
+                    <Spinner />
+                </div>
+            )
+        }
         return (
             <div className={styles.mainMyWishes}>
                 <h1>Мої бажання</h1>
