@@ -41,7 +41,7 @@ export class AboutMeComponent extends React.Component {
                 <span className="items_surname">Прізвище:</span> {surname}
               </li>
               <li>
-                <span className="items_age">Рік народження:</span> {birthday}
+                <span className="items_age">Дата народження:</span> {birthday}
               </li>
               <li>
                 <span className="items_description">Про мене:</span> {description}
