@@ -4,7 +4,7 @@ import { Spinner } from "../../../public-components/spinner";
 import styles from "./events.module.scss";
 import { convertToDate } from "../../../libs/helpers/convertToDate";
 import { getEvents, getEventsPending, getEventsError } from '../../../reducers/eventsReducer';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 function EventComponent({ events }) {
 

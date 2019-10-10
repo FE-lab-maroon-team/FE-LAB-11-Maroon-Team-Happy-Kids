@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
-import styles from "./events.module.scss";
 import { Button } from "../../public-components/button";
 import { fetchEvents } from "../../actions";
 import { convertToDate } from "../../libs/helpers/convertToDate";
 import { getEvents, getEventsPending, getEventsError } from "../../reducers/eventsReducer";
 import { connect } from "react-redux";
 
+import { Progress } from 'antd';
+import 'antd/dist/antd.css';
+import styles from "./events.module.scss";
+
+
 function EventsListComponent(props) {
   useEffect(() => {
     props.fetchEvents();
-  }, [props]);
+  }, []);
   const {events} = props;
   return (
     <div className={styles.mainEventsBlock}>
@@ -31,9 +35,16 @@ function EventsListComponent(props) {
               </p>
             </div>
             <p>{event.description}</p>
-            <div className={styles.button}>
-              {event.donated && <Button text="Пожертвувати" />}
+            <div className={styles.progressButton}>
+              <div className={styles.progress}>
+                <Progress type="circle" percent={event.currentAmount} />
+              </div>
+
+              <div className={styles.button}>
+                {event.donated && <Button text="Пожертвувати" />}
+              </div>
             </div>
+            
           </div>
         </div>
       ))}

@@ -7,6 +7,7 @@ h1,h2,h3,h4,h5,h6,p {
   color: white;
 }
 
+
 .mainEventsBlock {
   display: flex;
   flex-direction: column;
@@ -43,16 +44,25 @@ h1,h2,h3,h4,h5,h6,p {
       }
       div {
         margin: 0;
-        padding: 25px 0;
+        // padding: 25px 0;
         p {
           padding-bottom: 7px;
         }
       }
-      .button {
-        padding: 25px 0;
-        display: flex;
-        justify-content: flex-end;
+     .progressButton {
+      display: flex;
+      justify-content: flex-end;
+        .progress {
+          width: 30px;
+        }
+
+        .button {
+          padding: 35px 0 35px 90px;
+          // display: flex;
+          // justify-content: flex-end;
+        }
       }
+      
     }
     .eventImage {
       display: flex;
