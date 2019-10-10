@@ -26,7 +26,7 @@ export class MyWishes extends Component {
         if(!this.state.user){
             return <Spinner />
         }
-        const {wishes} = this.state.user;
+        const {wishes} = this.state.user;        
         return (
             <div className={styles.mainMyWishes}>
                 <h1>Мої бажання</h1>
