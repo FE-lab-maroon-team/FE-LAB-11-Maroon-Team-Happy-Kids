@@ -15,6 +15,7 @@ function EventsListComponent(props) {
     props.fetchEvents();
   }, []);
   const {events} = props;
+
   return (
     <div className={styles.mainEventsBlock}>
       <h1>Найближчі події</h1>
@@ -37,14 +38,22 @@ function EventsListComponent(props) {
             <p>{event.description}</p>
             <div className={styles.progressButton}>
               <div className={styles.progress}>
-                <Progress type="circle" percent={event.currentAmount} />
+                  <Progress type="circle" strokeColor={{
+                    '0%': '#e9e210',
+                    '100%': '#e96e10',
+                    }}
+                    width={100}
+                    percent={event.currentAmount=100}  // '=100' only for test
+                  />
+                { event.currentAmount < 100 ? 
+                  <div><h4>Зібрано коштів:</h4></div> : 
+                  <div><h4>Кошти зібрано!</h4></div> 
+                }
               </div>
-
               <div className={styles.button}>
                 {event.donated && <Button text="Пожертвувати" />}
               </div>
-            </div>
-            
+            </div> 
           </div>
         </div>
       ))}
