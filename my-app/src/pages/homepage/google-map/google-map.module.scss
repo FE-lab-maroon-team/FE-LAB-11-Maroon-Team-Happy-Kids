@@ -1,11 +1,12 @@
-$bgcGoogleMap: #3498DB;
+$bgcGoogleMap: #0c9dc9;
 h1{
     text-align: center;
+    margin: 25px 0;
 }
 .google_map{
-    max-width: 1400px;
     height: 500px;
-    margin: 20px 0px;
+    width: 80%;
+    margin: 25px auto;
 }
 
 .container_google_maps{
