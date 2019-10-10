@@ -29,9 +29,8 @@ export class MyWishes extends Component {
         const {wishes} = this.state.user;
         if (wishes.length === undefined) {
             return (
-                <div>
+                <div className={styles.noWishes}>
                     <h3>Вибачте. Побажань для цієї дитини не знайдено.</h3>
-                    <Spinner />
                 </div>
             )
         }

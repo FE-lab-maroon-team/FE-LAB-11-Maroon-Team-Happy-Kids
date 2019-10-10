@@ -58,6 +58,15 @@ $boxShadowMyWishesCol: rgba(0,0,0,0.4);
     }
 }
 
+.noWishes {
+    text-align: center;
+    margin: 100px 0 150px 0;
+    h3 {
+      color: $basic-color;
+      line-height: 2rem;
+    }
+}
+  
 @media (max-width: 768px){
     .mainMyWishes{
         .myWishes{
