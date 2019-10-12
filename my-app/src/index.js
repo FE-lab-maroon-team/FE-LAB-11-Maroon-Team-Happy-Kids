@@ -29,7 +29,7 @@ function AppRouter(){
                     <Route path="/login" exact component={Auth}></Route>
                 </div>
                 <Footer />
-            </Router>
+            </Router>    
     )
 }
 
