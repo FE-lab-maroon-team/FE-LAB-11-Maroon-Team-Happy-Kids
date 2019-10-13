@@ -1,13 +1,21 @@
 import React from "react";
 import { Button } from "../../../public-components/button";
 import { Spinner } from "../../../public-components/spinner";
+import { Portal } from '../../../public-components/portal/index';
 import styles from "./events.module.scss";
 import { convertToDate } from "../../../libs/helpers/convertToDate";
 import { getEvents, getEventsPending, getEventsError } from '../../../reducers/eventsReducer';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
-function EventComponent({ events }) {
 
+
+class EventComponent extends React.Component {
+  state = {showModal: false}
+  handleShowMessageClick = () => this.setState({showModal: true})
+  handleCloseModal = () => this.setState({showModal: false})
+
+  render(){ 
+   const { events } = this.props;
   if (events.length === 0) {
     return <Spinner />;
   }
@@ -30,14 +38,19 @@ function EventComponent({ events }) {
           </div>
           <p>{firstEvent.description}</p>
           <div className={styles.button}>
-            {firstEvent.donated && <Button text="Детальніше..." />}
+            {firstEvent.donated && <Button onClick={this.handleShowMessageClick} text="Детальніше..." />}
           </div>
         </div>
       </div>
+      {this.state.showModal  && (
+            <Portal onClose={this.handleCloseModal}>        
+            </Portal>
+          )}
     </div>
+   
   );
 }
-
+}
 const mapStateToProps = (state) => ({
   events: getEvents(state),
   pending: getEventsPending(state),
