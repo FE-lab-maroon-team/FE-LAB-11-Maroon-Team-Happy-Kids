@@ -43,7 +43,7 @@ function EventsListComponent(props) {
                     '100%': '#e96e10',
                     }}
                     width={100}
-                    percent={event.currentAmount*100/event.totalAmount}
+                    percent={event.currentAmount*100/event.totalAmount} 
                   />
                   <div><h4>{
                     event.currentAmount*100/event.totalAmount < 100 ? "Зібрано коштів:" : "Кошти зібрано!"
