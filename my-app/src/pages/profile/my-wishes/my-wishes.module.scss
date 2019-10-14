@@ -31,8 +31,8 @@ $basic-color: #0c9dc9;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        @media screen and (max-width: 560px){
-            height: auto;
+        @media screen and (max-width: 560px) {
+          height: auto;
         }
         h3 {
           text-align: center;
@@ -44,8 +44,8 @@ $basic-color: #0c9dc9;
         justify-content: space-between;
         padding: 0 13px;
         width: 100%;
-        .myWishesText{
-            line-height: 24px;
+        .myWishesText {
+          line-height: 24px;
         }
       }
       .myWishesDescribe {
@@ -63,6 +63,15 @@ $basic-color: #0c9dc9;
         }
       }
     }
+  }
+}
+.noWishes {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    color: $basic-color;
   }
 }
 @media (max-width: 1200px) {
