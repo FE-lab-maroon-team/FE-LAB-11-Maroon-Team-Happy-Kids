@@ -5,12 +5,16 @@ $secondary-color: #43c1e4;
 h1,h2,h3,h4,h5,h6,p {
   font-family: "Montserrat", sans-serif;
   color: white;
+  margin: 15px 0;
 }
 h1 {
   font-size: 3em;
 }
 h2 {
   font-size: 2.5em;
+}
+p{
+  line-height: 22px;
 }
 
 .headerImage {
