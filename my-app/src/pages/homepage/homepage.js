@@ -12,8 +12,11 @@ const HomepageComponent = (props) => {
         props.fetchUsers()
     }, []);
     useEffect(() => {
-        props.fetchEvents()
-    }, []);
+        props.fetchEvents();
+    }, [])
+    useEffect(() => {
+        props.fetchUsers();
+    }, [])
     return (
         <div>
             <Description />
