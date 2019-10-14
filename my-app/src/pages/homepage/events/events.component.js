@@ -15,7 +15,7 @@ class EventComponent extends React.Component {
   handleCloseModal = () => this.setState({showModal: false})
 
   render(){ 
-   const { events } = this.props;
+  const { events } = this.props;
   if (events.length === 0) {
     return <Spinner />;
   }
@@ -38,7 +38,11 @@ class EventComponent extends React.Component {
           </div>
           <p>{firstEvent.description}</p>
           <div className={styles.button}>
-            {firstEvent.donated && <Button onClick={this.handleShowMessageClick} text="Детальніше..." />}
+            {firstEvent.donated &&
+              <Button onClick={() => {
+                window.scrollTo(0, 0);
+                this.props.history.push(`/events`)}}
+                text="Переглянути всі" />}
           </div>
         </div>
       </div>

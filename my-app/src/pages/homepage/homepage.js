@@ -12,12 +12,15 @@ const HomepageComponent = (props) => {
         props.fetchUsers()
     }, []);
     useEffect(() => {
-        props.fetchEvents()
-    }, []);
+        props.fetchEvents();
+    }, [])
+    useEffect(() => {
+        props.fetchUsers();
+    }, [])
     return (
         <div>
             <Description />
-            <Event />
+            <Event history = {props.history} />
             <Carousel />
             <GoogleMap />
         </div>
