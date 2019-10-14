@@ -65,6 +65,15 @@ $basic-color: #0c9dc9;
     }
   }
 }
+.noWishes {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    color: $basic-color;
+  }
+}
 @media (max-width: 1200px) {
   .mainMyWishes {
     .myWishes {
