@@ -36,6 +36,9 @@ function EventsListComponent(props) {
               </p>
             </div>
             <p>{event.description}</p>
+
+
+
             <div className={styles.progressButton}>
               <div className={styles.progress}>
                   <Progress type="circle" strokeColor={{

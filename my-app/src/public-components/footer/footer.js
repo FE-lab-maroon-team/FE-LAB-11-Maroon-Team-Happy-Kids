@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
 import classnames from "classnames";
+import { Help } from '../help';
+import { Textlink } from '../text-link';
 
-import { Textlink } from '../text-link'
+import 'antd/dist/antd.css';
 import './footer.css';
+
 
 
 export class Footer extends Component {
@@ -99,6 +102,8 @@ export class Footer extends Component {
         <ul className="footer_links">
           <li><Textlink name='Домашня' path='/' /></li>
           <li><Textlink name='Події' path='/events' /></li>
+          <li><Help /></li>
+          
         </ul>
       </div>
     </div>

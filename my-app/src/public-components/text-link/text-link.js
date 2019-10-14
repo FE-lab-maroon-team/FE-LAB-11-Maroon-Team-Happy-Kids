@@ -4,11 +4,11 @@ import './text-link.css';
 
 
 
-export const Textlink = (props) => {
+export const Textlink = ({ path, onClick, name }) => {
 
   return (  
     <span className="text_link">
-        <Link to={props.path}>{props.name}</Link>
+        <Link to={path} onClick={onClick}>{name}</Link>
     </span>        
   )
 }
