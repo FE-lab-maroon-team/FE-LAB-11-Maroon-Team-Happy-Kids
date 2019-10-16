@@ -4,7 +4,7 @@ $boxShadowMyWishesCol: rgba(0, 0, 0, 0.4);
   max-width: calc(1400px - 200px);
   height: 100%;
   margin: 50px auto;
-  padding: 35px;
+  padding: 25px 35px;
   background-color: $basic-color;
   box-shadow: 0px 0px 20px $boxShadowMyWishesCol;
   @media screen and (max-width: 768px) {
@@ -23,9 +23,9 @@ $boxShadowMyWishesCol: rgba(0, 0, 0, 0.4);
     align-items: center;
     padding-bottom: 40px;
     .aboutMe_photo {
-      height: 300px;
+      height: 250px;
       img {
-        width: 300px;
+        width: 250px;
         height: 100%;
         object-fit: cover;
         object-position: 50% 50%;
