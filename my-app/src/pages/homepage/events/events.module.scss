@@ -26,7 +26,7 @@ h2 {
     padding: 20px 45px;
     div {
       h2 {
-        padding: 25px 0;
+        padding: 15px 0;
         @media screen and (max-width: 768px) {
           text-align: center;
         }
@@ -63,6 +63,7 @@ h2 {
   display: flex;
   justify-content: flex-end;
   padding: 25px 0;
+  margin-bottom: 15px;
   @media screen and (max-width: 768px) {
     justify-content: space-around;
   }

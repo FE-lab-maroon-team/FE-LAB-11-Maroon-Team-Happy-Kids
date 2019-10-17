@@ -13,6 +13,7 @@ $basic-color: #0c9dc9;
     margin: 25px 0;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: flex-start;
     .col_4 {
       width: 29.9%;
       display: flex;
@@ -26,7 +27,6 @@ $basic-color: #0c9dc9;
       .myWishesDetails {
         padding: 17px;
         background-color: $basic-color;
-        height: 600px;
         display: flex;
         flex-direction: column;
         align-items: center;
