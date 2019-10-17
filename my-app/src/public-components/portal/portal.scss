@@ -3,9 +3,9 @@
     z-index: 1;
     width:400px;
     height: 200px;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.6);
     color:blue;
-    top:50%;
+    top:32%;
     left:42%;
     right:25%;
   }
@@ -18,4 +18,10 @@
     padding:10px 40px 10px 40px;
     border:0;
     border-radius: 25px;
+}
+.confirmation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;  
 }

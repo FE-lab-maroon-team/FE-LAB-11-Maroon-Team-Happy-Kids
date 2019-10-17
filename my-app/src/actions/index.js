@@ -15,3 +15,9 @@ export{
     SIGNOUT_SUCCESS,
     signIn,
     signOut} from './authActions';
+export {
+    HIDE_POPUP,
+    SHOW_POPUP,
+    hidePopup,
+    showPopup
+} from './wishesAction';

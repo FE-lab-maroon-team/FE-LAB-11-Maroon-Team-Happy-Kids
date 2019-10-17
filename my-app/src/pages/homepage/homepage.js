@@ -20,7 +20,7 @@ const HomepageComponent = (props) => {
     return (
         <div>
             <Description />
-            <Event />
+            <Event history = {props.history} />
             <Carousel />
             <GoogleMap />
         </div>

@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import styles from './my-wishes.module.scss';
 import { db } from '../../../firebase-config';
 import { Portal } from '../../../public-components/portal/index';
-import { Button } from '../../../public-components/button';
 import { Spinner } from '../../../public-components/spinner';
+import {Button} from '../../../public-components/button';
+import{showPopup,hidePopup} from '../../../actions';
 
-export class MyWishes extends Component {
+import {connect} from 'react-redux';
+
+class MyWishesOption extends Component {
     state = {
         user: null,
         showModal: false
     }
-    handleShowMessageClick = () => this.setState({ showModal: true })
-    handleCloseModal = () => this.setState({ showModal: false })
-
+    MessageClick = () => this.setState({ showModal: true });
+    handleCloseModal = () => this.setState({ showModal: false });
+    
+    
+    
     componentDidMount() {
         let documentRef = db.collection('users').doc(this.props.userId);
         documentRef.get()
@@ -27,15 +32,25 @@ export class MyWishes extends Component {
             });
     }
     render() {
+        const {isPopupOpen, selectedWishesId, showPopup, hidePopup} = this.props;
         if (!this.state.user) {
             return <Spinner />
         }
-        const { wishes } = this.state.user;
+        
+    
+        const {wishes} = this.state.user;
+        if (wishes.length === undefined) {
+            return (
+                <div className={styles.noWishes}>
+                    <h3>Вибачте. Побажань для цієї дитини не знайдено.</h3>
+                </div>
+            )
+        }
         return (
             <div className={styles.mainMyWishes}>
                 <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
-                    {wishes.map(({ name, price, description, presentUrl, country }) => (
+                    {wishes.map(({ name, price, description, presentUrl, country,id }) => (
                         <div className={styles.col_4} key={price}>
                             <img src={presentUrl} alt="Фото подарунка"></img>
                             <div className={styles.myWishesDetails}>
@@ -46,23 +61,43 @@ export class MyWishes extends Component {
                                         <p>Країна виробник</p>
                                     </div>
                                     <div className={styles.myWishesPrice}>
-                                        <p>{price}</p>
+                                        <p>{price} грн.</p>
                                         <p>{country}</p>
                                     </div>
                                 </div>
-                                <div className={styles.myWishesDescribe}>
+                                <div className={styles.myWishesDescription}>
                                     <p>{description}</p>
-                                    <Button text="Подарувати" onClick={this.handleShowMessageClick} className={styles.button} />
+                                    <button onClick={() => showPopup(id)} className={styles.buttonPresent}>Подарувати</button>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-                {this.state.showModal && (
-                    <Portal onClose={this.handleCloseModal}>
+                {isPopupOpen && (
+                    <Portal onClose={() => hidePopup()}>
+                        <div className="confirmation">
+                            <p>Ви дійсно хочете подарувати цей подарунок?</p>
+                            <div>
+                                <Button text="Так" />
+                                <Button text="Ні" onClick={hidePopup}/>
+                            </div>
+                        </div>
                     </Portal>
                 )}
             </div>
         )
     }
 }
+const mapStateToProps = (state) => {
+    console.log(state)
+    return{
+        isPopupOpen: state.wishes.isPopupOpen,
+        selectedWishesId: state.wishes.selectedWishesId
+    }
+}
+const mapDispatchToProps = {
+    showPopup,
+    hidePopup
+}
+
+export const MyWishes = connect(mapStateToProps,mapDispatchToProps)(MyWishesOption)
