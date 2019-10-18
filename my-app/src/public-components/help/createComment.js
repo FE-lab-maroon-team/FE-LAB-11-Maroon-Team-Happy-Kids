@@ -18,8 +18,6 @@ function CommentsListComponent(props) {
   }, []);
   const {comments} = props;
   
-  
-
   function getDateZ(date) {
     const timePast = moment(date).fromNow();
     return timePast;
@@ -40,7 +38,7 @@ function CommentsListComponent(props) {
             />
           }
           content={
-            <p style={{ color: "#0C9DC9"}} >
+            <p style={{ color: "#0C9DC9", paddingTop: "10px"}} >
               {comment.value}
             </p>
           }
@@ -64,8 +62,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapsDispatchToProps = {fetchComments};
-
 const Comments = connect(mapStateToProps, mapsDispatchToProps)(CommentsListComponent);
+
 
 const { TextArea } = Input;
 

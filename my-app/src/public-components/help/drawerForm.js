@@ -79,7 +79,7 @@ export class DrawerForm extends Component {
         
         <Drawer
           title="Надсилання повідомлення"
-          width={'30%'}
+          width={'20%'}
           onClose={this.onClose}
           visible={this.state.visible}
         >
@@ -91,7 +91,7 @@ export class DrawerForm extends Component {
                     validateStatus={usernameError ? 'error' : ''} help={usernameError || ''}>
                   {getFieldDecorator('name', {
                     rules: [{ required: true, message: `Будь-ласка, введіть ім'я користувача!` }],
-                  })(<Input style={{ width: 200 }} placeholder="Будь-ласка, введіть ім'я користувача!" />)}
+                  })(<Input style={{ width: 200 }} placeholder="Введіть ім'я користувача!" />)}
                 </Form.Item>
               </Col>
               </Row>
@@ -107,7 +107,7 @@ export class DrawerForm extends Component {
                         dataSource={this.state.dataSource}
                         style={{ width: 200 }}
                         onChange={this.handleChange}
-                        placeholder="Email"
+                        placeholder="Ваш Email"
                     />,
                   )}
                 </Form.Item>
@@ -126,7 +126,7 @@ export class DrawerForm extends Component {
                       },
                     ],
                   })(<Input.TextArea rows={4} 
-                      placeholder="Будь-ласка, введіть Ваше повідомлення!" 
+                      placeholder="Введіть Ваше повідомлення!" 
                       />)}
                 </Form.Item>
               </Col>
