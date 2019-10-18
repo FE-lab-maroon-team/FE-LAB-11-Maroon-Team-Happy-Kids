@@ -15,10 +15,10 @@ const initialState = {
 export function commentReducer(state = initialState, action) {
     switch (action.type) {
     case CREATE_COMMENT_SUCCESS:
-        console.log('create_comment_success');
+        //console.log('create_comment_success');
         return state;
     case CREATE_COMMENT_ERROR:
-        console.log('create_comment_error');
+        //console.log('create_comment_error');
         return state;
     case LOAD_COMMENTS_REQUEST: 
         return {

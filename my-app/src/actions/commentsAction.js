@@ -9,12 +9,12 @@ export const LOAD_COMMENTS_REQUEST = 'LOAD_COMMENTS_REQUEST';
 export const LOAD_COMMENTS_ERROR = 'LOAD_COMMENTS_ERROR';
 
 
-export const createComment = (comment) => {
+export const createComment = (comment) => { 
     return (dispatch, getState, {getFirebase, getFirestore}) => {
       // make async call to database
       const firestore = getFirestore();
       firestore.collection('comments').add({
-        ...comment,
+        value: comment.value,
         id: `f${(~~(Math.random()*1e8)).toString(16)}`,
         createdAt: moment().format('LLLL'),
       }).then(() => {
@@ -23,7 +23,7 @@ export const createComment = (comment) => {
         dispatch({ type: CREATE_COMMENT_ERROR }, err);
       });
     }
-  };
+};
 
 export function loadCommentsRequest() {
     return {

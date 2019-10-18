@@ -10,22 +10,32 @@ import { getComments, getCommentsPending, getCommentsError } from "../../reducer
 
 import 'antd/dist/antd.css';
 
+
+
 function CommentsListComponent(props) {
   useEffect(() => {
     props.fetchComments();
   }, []);
   const {comments} = props;
+  
+  
+
+  function getDateZ(date) {
+    const timePast = moment(date).fromNow();
+    return timePast;
+  }
 
   return (
     <div>
       {`${comments.length} ${comments.length > 1 ? 'коментарі(в)' : 'коментар'}`}
       {comments.map(comment => (
+
         <Comment
           key={comment.id}
           author={<a>Невідомий Користувач</a>}
           avatar={
             <Avatar
-              src={`https://api.adorable.io/avatars/40/${comment.value}.png`}
+              src={`https://api.adorable.io/avatars/40/${comment.id}.png`}
               alt={comment.avatar}
             />
           }
@@ -36,7 +46,9 @@ function CommentsListComponent(props) {
           }
           datetime={
             <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-              <span>{moment().fromNow()}</span>
+              <span>Created: </span>
+              <br></br>
+              <span>{getDateZ(comment.createdAt)}</span>
             </Tooltip>
           }
         />
@@ -131,7 +143,7 @@ export class CreateComment extends Component {
         <Comment 
             avatar={
               <Avatar
-                src={`https://api.adorable.io/avatars/40/${comments.value}.png`}
+                src={`https://api.adorable.io/avatars/40/${comments.id}.png`}
                 alt="Some User"
               />
             }
