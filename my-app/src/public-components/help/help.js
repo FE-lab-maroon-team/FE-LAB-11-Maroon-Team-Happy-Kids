@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Drawer, Form, Icon } from 'antd';
-import { Textlink } from '../text-link';
+import { TextlinkButton } from '../text-link';
 import { DrawerForm } from './drawerForm.js';
 import  CreateComment  from './createComment';
 
@@ -33,7 +33,7 @@ export class Help extends Component {
         <div>
           <div className={styles.help_link}>
             <Icon type="message" theme="filled" style={{ fontSize: '30px', paddingRight: '5px' }} />
-            <Textlink name='Зворотній звязок' path='#' onClick={this.showDrawer} />
+            <TextlinkButton name="Зворотній зв'язок" path='#' onClick={this.showDrawer} />
           </div>
           
           <Drawer

@@ -163,10 +163,6 @@ export class CreateComment extends Component {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    createComment: (comment) => dispatch(createComment(comment)),
-  }
-}
+const mapDispatchToProps = {createComment};
 
 export default connect(null, mapDispatchToProps)(CreateComment)
