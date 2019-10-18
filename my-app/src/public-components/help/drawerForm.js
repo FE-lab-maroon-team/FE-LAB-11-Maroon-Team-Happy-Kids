@@ -56,7 +56,7 @@ export class DrawerForm extends Component {
     this.setState({
       visible: false,
     });
-  };
+  }; 
 
   render() {
     const { getFieldDecorator, getFieldError, getFieldsError, isFieldTouched } = this.props.form;
