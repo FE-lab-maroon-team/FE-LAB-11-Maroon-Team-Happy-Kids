@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
 import classnames from "classnames";
+import { Help } from '../help';
+import { Textlink } from '../text-link';
 
-import { Textlink } from '../text-link'
-import className from './footer.css';
+import 'antd/dist/antd.css';
+import './footer.css';
+
 
 
 export class Footer extends Component {
@@ -91,7 +94,7 @@ export class Footer extends Component {
           <li><Icon className="footer_contacts_icons" type="phone" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
           <Textlink name='+38(097)1234567' path='' /></li>
           <li><Icon className="footer_contacts_icons" type="mail" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
-          <Textlink name='www.nadiya.com' path='' /></li>
+          <Textlink name='happy_kids@gmail.com' path='' /></li>
           <li><Icon className="footer_contacts_icons" type="home" style={{ fontSize: '25px', color: '#DA3E44' }} theme="outlined" />
           <Textlink name='м.Львів, вул.Центральна,1' path='' /></li>
         </ul>
@@ -99,7 +102,8 @@ export class Footer extends Component {
         <ul className="footer_links">
           <li><Textlink name='Домашня' path='/' /></li>
           <li><Textlink name='Події' path='/events' /></li>
-          <li><Textlink name='Профіль' path='/profile' /></li>
+          <li><Help /></li>
+          
         </ul>
       </div>
     </div>

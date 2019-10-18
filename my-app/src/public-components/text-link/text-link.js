@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classes from './text-link.css';
+import './text-link.css';
 
 
 
-export const Textlink = (props) => {
-
+export const Textlink = ({ path, name }) => {
   return (  
     <span className="text_link">
-        <Link to={props.path}>{props.name}</Link>
+        <Link to={path} >{name}</Link>
+    </span>        
+  )
+}
+
+export const TextlinkButton = ({ path, onClick, name }) => {
+  return (  
+    <span className="text_link">
+        <Link to={path} onClick={onClick}>{name}</Link>
     </span>        
   )
 }

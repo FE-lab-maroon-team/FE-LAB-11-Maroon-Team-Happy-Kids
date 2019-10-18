@@ -1,1 +1,1 @@
-export { Textlink } from './text-link';
+export { Textlink, TextlinkButton } from './text-link';

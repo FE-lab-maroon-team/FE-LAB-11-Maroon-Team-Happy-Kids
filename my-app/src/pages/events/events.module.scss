@@ -47,12 +47,28 @@ h1,h2,h3,h4,h5,h6,p {
           padding-bottom: 7px;
         }
       }
-      .button {
-        padding: 25px 0;
-        display: flex;
-        justify-content: flex-end;
-      }
     }
+
+    .progressButton {
+      padding-top: 15px;
+      display: flex;
+      justify-content: space-around;
+    .progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      padding-bottom: 10px;
+    }
+    .button {
+      align-self: center;
+    }
+
+    svg {
+      font-size: 25px;
+      color: #c1c41a;
+    }
+  
+  }
     .eventImage {
       display: flex;
       flex-grow: 1;
