@@ -11,13 +11,11 @@ import {connect} from 'react-redux';
 class MyWishesOption extends Component {
     state = {
         user: null,
-        showModal: false
+        color: '#0c9dc9'
+    }  
+    changeColor = () => {
+        this.setState({color: '#000000'});
     }
-    MessageClick = () => this.setState({ showModal: true });
-    handleCloseModal = () => this.setState({ showModal: false });
-    
-    
-    
     componentDidMount() {
         let documentRef = db.collection('users').doc(this.props.userId);
         documentRef.get()
@@ -51,7 +49,7 @@ class MyWishesOption extends Component {
                 <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
                     {wishes.map(({ name, price, description, presentUrl, country,id }) => (
-                        <div className={styles.col_4} key={price}>
+                        <div className={styles.col_4} style={{background:this.state.color}}key={price}>
                             <img src={presentUrl} alt="Фото подарунка"></img>
                             <div className={styles.myWishesDetails}>
                                 <h3>{name}</h3>
@@ -78,7 +76,7 @@ class MyWishesOption extends Component {
                         <div className="confirmation">
                             <p>Ви дійсно хочете подарувати цей подарунок?</p>
                             <div>
-                                <Button text="Так" />
+                                <Button text="Так" onClick={this.changeColor}/>
                                 <Button text="Ні" onClick={hidePopup}/>
                             </div>
                         </div>
@@ -89,7 +87,7 @@ class MyWishesOption extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state)
+    console.log(state);
     return{
         isPopupOpen: state.wishes.isPopupOpen,
         selectedWishesId: state.wishes.selectedWishesId
