@@ -18,6 +18,9 @@ export{
 export {
     HIDE_POPUP,
     SHOW_POPUP,
+    UPDATE_WISHES_SUCCESS,
+    UPDATE_WISHES_ERROR,
     hidePopup,
-    showPopup
+    showPopup,
+    checkWishInDB
 } from './wishesAction';

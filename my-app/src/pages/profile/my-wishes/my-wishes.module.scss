@@ -59,6 +59,11 @@ $basic-color: #0c9dc9;
         p {
           padding: 15px 0;
         }
+        button {
+          &:disabled{
+            background-color: grey;
+          }
+        }
         .buttonPresent {
           align-items: flex-end;
           background-color: #1A5276;

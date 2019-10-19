@@ -1,8 +1,9 @@
-import{HIDE_POPUP, SHOW_POPUP} from '../actions';
+import{HIDE_POPUP, SHOW_POPUP, UPDATE_WISHES_SUCCESS, UPDATE_WISHES_ERROR} from '../actions';
 
 const initialState = {
     isPopupOpen: false,
-    selectedWishesId: ''
+    selectedWishesId: '',
+    userObject: null
 }
 
 export function wishesReducer(state = initialState, action){
@@ -13,6 +14,14 @@ export function wishesReducer(state = initialState, action){
                 selectedWishesId: action.payload
             }
         case HIDE_POPUP:
+            return{
+                initialState
+            }
+        case UPDATE_WISHES_SUCCESS:
+            return{
+                userObject: action.payload
+            }
+        case UPDATE_WISHES_ERROR:
             return{
                 initialState
             }

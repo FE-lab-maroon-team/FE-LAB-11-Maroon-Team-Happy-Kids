@@ -4,17 +4,13 @@ import { db } from '../../../firebase-config';
 import { Portal } from '../../../public-components/portal/index';
 import { Spinner } from '../../../public-components/spinner';
 import {Button} from '../../../public-components/button';
-import{showPopup,hidePopup} from '../../../actions';
+import{showPopup,hidePopup,checkWishInDB} from '../../../actions';
 
 import {connect} from 'react-redux';
 
 class MyWishesOption extends Component {
     state = {
-        user: null,
-        color: '#0c9dc9'
-    }  
-    changeColor = () => {
-        this.setState({color: '#000000'});
+        user: null
     }
     componentDidMount() {
         let documentRef = db.collection('users').doc(this.props.userId);
@@ -29,13 +25,43 @@ class MyWishesOption extends Component {
                 }
             });
     }
+
+            
+    checkWishInDB = () => {
+        const userId =this.props.userId;
+        const selectedWish = this.props.selectedWishesId;
+        const docRef = db.collection("users").doc(userId);
+        docRef
+        .get()
+        .then((doc) => {
+            let wishesarr = doc.data().wishes;
+            wishesarr.forEach(obj => {
+            if (obj.hasOwnProperty("isActive")) {
+                if (obj.id === selectedWish) {
+                obj["isActive"] = false;
+                this.updateWishInDB(wishesarr, userId);
+                }
+            }
+            });
+            
+        })
+        .catch((error) => {
+            console.log("Error getting document:", error);
+        });
+    };
+    
+    updateWishInDB = (wishes, userId) => {
+        const docRef = db.collection("users").doc(userId);
+        docRef
+        .update({wishes})
+    };
+
+
     render() {
         const {isPopupOpen, selectedWishesId, showPopup, hidePopup} = this.props;
         if (!this.state.user) {
             return <Spinner />
         }
-        
-    
         const {wishes} = this.state.user;
         if (wishes.length === undefined) {
             return (
@@ -48,7 +74,7 @@ class MyWishesOption extends Component {
             <div className={styles.mainMyWishes}>
                 <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
-                    {wishes.map(({ name, price, description, presentUrl, country,id }) => (
+                    {wishes.map(({ name, price, description, presentUrl, country,id, isActive }) => (
                         <div className={styles.col_4} style={{background:this.state.color}}key={price}>
                             <img src={presentUrl} alt="Фото подарунка"></img>
                             <div className={styles.myWishesDetails}>
@@ -65,7 +91,7 @@ class MyWishesOption extends Component {
                                 </div>
                                 <div className={styles.myWishesDescription}>
                                     <p>{description}</p>
-                                    <button onClick={() => showPopup(id)} className={styles.buttonPresent}>Подарувати</button>
+                                    <button disabled={!isActive} onClick={() => showPopup(id)} className={styles.buttonPresent}>Подарувати</button>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +102,9 @@ class MyWishesOption extends Component {
                         <div className="confirmation">
                             <p>Ви дійсно хочете подарувати цей подарунок?</p>
                             <div>
-                                <Button text="Так" onClick={this.changeColor}/>
+                                <Button text="Так" onClick={
+                                        this.checkWishInDB
+                                    }/>
                                 <Button text="Ні" onClick={hidePopup}/>
                             </div>
                         </div>
@@ -95,7 +123,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = {
     showPopup,
-    hidePopup
+    hidePopup,
+    // checkWishInDB
 }
 
 export const MyWishes = connect(mapStateToProps,mapDispatchToProps)(MyWishesOption)
