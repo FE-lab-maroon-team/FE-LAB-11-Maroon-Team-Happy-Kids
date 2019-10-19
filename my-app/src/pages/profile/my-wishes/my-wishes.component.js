@@ -31,12 +31,19 @@ export class MyWishes extends Component {
             return <Spinner />
         }
         const {wishes} = this.state.user;
+        if (wishes.length === undefined) {
+            return (
+                <div className={styles.noWishes}>
+                    <h3>Вибачте. Побажань для цієї дитини не знайдено.</h3>
+                </div>
+            )
+        }
         return (
             <div className={styles.mainMyWishes}>
                 <h1>Мої бажання</h1>
                 <div className={styles.myWishes}>
                 {wishes.map(({name, price, description, presentUrl, country}) =>(
-                    <div className={styles.col_4}>
+                    <div className={styles.col_4} key={price}>
                         <img src={presentUrl} alt="Фото подарунка"></img>
                         <div className={styles.myWishesDetails}>
                             <h3>{name}</h3>

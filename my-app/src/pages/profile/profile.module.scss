@@ -1,7 +1,11 @@
-$bgcContainerMyWishes: #3498DB;
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+h1,h2,h3,h4,h5,h6,p,li {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
 .container_my_wishes{
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    background-color: $bgcContainerMyWishes;
 }

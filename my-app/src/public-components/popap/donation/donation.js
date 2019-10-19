@@ -3,7 +3,6 @@ import { Button } from '../../button/index';
 import './donation.scss'
 import { connect } from 'react-redux';
 import { createDonate } from '../../../actions/donateAction'
-import { dispatch } from 'rxjs/internal/observable/pairs';
 
 
 

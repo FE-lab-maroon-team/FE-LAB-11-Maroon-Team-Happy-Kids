@@ -1,5 +1,6 @@
 $basic-color: #0c9dc9;
 $secondary-color: #43c1e4;
+$boxShadowMyWishesCol: rgba(0, 0, 0, 0.4);
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 h1,h2,h3,h4,h5,h6,p {
@@ -24,9 +25,11 @@ h1,h2,h3,h4,h5,h6,p {
     flex-direction: row;
     margin: 50px;
     box-sizing: border-box;
+    box-shadow: 0px 0px 20px $boxShadowMyWishesCol;
     @media screen and (max-width: 768px) {
       display: flex;
       flex-direction: column-reverse;
+      width: 100%;
     }
     .eventDescription {
       display: flex;
@@ -38,22 +41,34 @@ h1,h2,h3,h4,h5,h6,p {
       @media screen and (max-width: 768px) {
         padding-bottom: 0;
       }
-      h2 {
-        padding-bottom: 15px;
-      }
       div {
         margin: 0;
-        padding: 25px 0;
         p {
           padding-bottom: 7px;
         }
       }
-      .button {
-        padding: 25px 0;
-        display: flex;
-        justify-content: flex-end;
-      }
     }
+
+    .progressButton {
+      padding-top: 15px;
+      display: flex;
+      justify-content: space-around;
+    .progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      padding-bottom: 10px;
+    }
+    .button {
+      align-self: center;
+    }
+
+    svg {
+      font-size: 25px;
+      color: #c1c41a;
+    }
+  
+  }
     .eventImage {
       display: flex;
       flex-grow: 1;

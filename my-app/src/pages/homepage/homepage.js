@@ -9,15 +9,18 @@ import { fetchEvents, fetchUsers} from '../../actions';
 
 const HomepageComponent = (props) => {
     useEffect(() => {
-        props.fetchUsers();
-    }, [])
+        props.fetchUsers()
+    }, []);
     useEffect(() => {
         props.fetchEvents();
+    }, [])
+    useEffect(() => {
+        props.fetchUsers();
     }, [])
     return (
         <div>
             <Description />
-            <Event />
+            <Event history = {props.history} />
             <Carousel />
             <GoogleMap />
         </div>

@@ -4,7 +4,6 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { getUsers, getUsersPending, getUsersError } from "../../../reducers/usersReducer";
-import { loadUsersRequest, loadUsersSuccess, loadUsersError } from '../../../actions/usersAction';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carousel.scss";

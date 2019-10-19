@@ -1,1 +1,3 @@
-export { Spinner } from './spinner'
+import { Spinner } from './spinner';
+
+export { Spinner };
