@@ -41,9 +41,7 @@ export const checkWishInDB = (userId, selectedWish) => (dispatch) => {
         if (obj.hasOwnProperty("isActive")) {
             if (obj.id === selectedWish) {
             obj["isActive"] = false;
-            const element = obj;
-            updateWishInDB(element, userId);
-            console.log(element);
+            updateWishInDB(wishesarr, userId);
             }
         }
         });
@@ -59,5 +57,5 @@ export const updateWishInDB = (wishes, userId) => (dispatch) => {
     const docRef = db.collection("users").doc(userId);
     docRef
     .update({wishes})
-    // .then(dispatch(updateWishesSuccess(wishes)))
+    .then(dispatch(updateWishesSuccess(wishes)))
 };
