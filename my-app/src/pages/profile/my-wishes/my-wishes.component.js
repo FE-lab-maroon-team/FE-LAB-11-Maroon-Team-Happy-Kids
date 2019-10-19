@@ -112,7 +112,6 @@ class MyWishesOption extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         isPopupOpen: state.wishes.isPopupOpen,
         selectedWishesId: state.wishes.selectedWishesId
