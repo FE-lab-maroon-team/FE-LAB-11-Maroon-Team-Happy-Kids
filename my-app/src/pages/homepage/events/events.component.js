@@ -6,13 +6,10 @@ import styles from "./events.module.scss";
 import { convertToDate } from "../../../libs/helpers/convertToDate";
 import { getEvents, getEventsPending, getEventsError } from '../../../reducers/eventsReducer';
 import { connect } from 'react-redux'
-import { from } from "rxjs";
+import { Donate } from '../../../public-components/popap/donation/index';
 
 
 class EventComponent extends React.Component {
-  state = {showModal: false}
-  handleShowMessageClick = () => this.setState({showModal: true})
-  handleCloseModal = () => this.setState({showModal: false})
 
   render(){ 
    const { events } = this.props;
@@ -37,15 +34,11 @@ class EventComponent extends React.Component {
             </p>
           </div>
           <p>{firstEvent.description}</p>
-          <div className={styles.button}>
-            {firstEvent.donated && <Button onClick={this.handleShowMessageClick} text="Детальніше..." />}
+          <div className={styles.button} >
+            {firstEvent.donated && <Button  text="Детальніше..." />}
           </div>
         </div>
       </div>
-      {this.state.showModal  && (
-            <Portal onClose={this.handleCloseModal}>        
-            </Portal>
-          )}
     </div>
    
   );

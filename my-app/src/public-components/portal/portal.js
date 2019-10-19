@@ -1,7 +1,9 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Icon } from 'antd';
 import { Button } from '../button/index' 
 import  './portal.scss';
+import { from } from 'array-flatten';
 
 const portalRoot = document.getElementById('portal');
 
@@ -23,7 +25,7 @@ const portalRoot = document.getElementById('portal');
         const { children , onClose } = this.props;
          const content  = (
          <div  className='modal'>
-             <button className="close-btn" onClick={onClose}>Close</button>
+             <button className="close-btn" onClick={onClose}><Icon type="close" /></button>
              {children}
          </div>
          )
