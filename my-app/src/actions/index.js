@@ -20,6 +20,17 @@ export{
     SIGNOUT_SUCCESS,
     signIn,
     signOut} from './authActions';
+export {
+    HIDE_POPUP,
+    SHOW_POPUP,
+    hidePopup,
+    showPopup,
+    UPDATE_WISHES_SUCCESS,
+    UPDATE_WISHES_ERROR,
+    updateWishesSuccess,
+    updateWishesError,
+    checkWishInDB
+} from './wishesAction';
 export{
     CREATE_COMMENT_SUCCESS,
     CREATE_COMMENT_ERROR,
