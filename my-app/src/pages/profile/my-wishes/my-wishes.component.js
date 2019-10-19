@@ -4,7 +4,7 @@ import { db } from '../../../firebase-config';
 import { Portal } from '../../../public-components/portal/index';
 import { Spinner } from '../../../public-components/spinner';
 import { Button } from '../../../public-components/button';
-import { showPopup, hidePopup, checkWishInDB } from '../../../actions';
+import { showPopup, hidePopup } from '../../../actions';
 
 import { connect } from 'react-redux';
 
