@@ -1,26 +1,32 @@
-
+import {CREATE_PROJECT,CREATE_PROJECT_ERROR,UPDATE_DB_SUCSESS} from '../actions/donateAction'
 const initialState = {
     pending: false,
-    events:[],
+    project:[],
     error: null
 }
 
 export function donateReducer(state = initialState,action){
     switch(action.type){
-        case 'CREATE_PROJECT':
+        case CREATE_PROJECT:
            return{
                ...state,
                pending:true,
-               events: action.payload
+               project: action.payload
            }
-        case 'CREATE_PROJECT_ERROR':
+        case CREATE_PROJECT_ERROR:
             return{
                 ...state,
                 pending:false,
-                events:action.payload
+                project:action.payload
+            }
+        case UPDATE_DB_SUCSESS:
+            return {
+                ...state,
+                project:action.payload
             }
         default:
             return state;
     }
 }
+
 export default donateReducer

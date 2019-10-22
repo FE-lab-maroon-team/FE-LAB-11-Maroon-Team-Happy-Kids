@@ -1,5 +1,4 @@
 import React, { useEffect , useState } from "react";
-import styles from "./events.module.scss";
 import { Button } from "../../public-components/button";
 import { fetchEvents } from "../../actions";
 import { convertToDate } from "../../libs/helpers/convertToDate";
@@ -16,9 +15,14 @@ import styles from "./events.module.scss";
 function EventsListComponent(props) {
   const [showModal , handleMessageClick] = useState(false);
   const [ selectedEventId , setSelectId ] = useState('');
-  const handleClick = (eventId) =>{
+  const [selectedTotalAmount, setTotalAmount] = useState(0);
+  const [selectedCurrentAmount, setCurrentAmount] = useState(0);
+
+  const handleClick = (eventId,eventCurrentSum,eventTotalSum) =>{
     handleMessageClick(true);
     setSelectId(eventId);
+    setTotalAmount(eventTotalSum);
+    setCurrentAmount(eventCurrentSum);
   }
   const handleClosePopap = () =>{
     handleMessageClick(false);
@@ -48,11 +52,6 @@ function EventsListComponent(props) {
               </p>
             </div>
             <p>{event.description}</p>
-<<<<<<< HEAD
-            <div className={styles.button} >
-              {event.donated && <Button onClick ={() => handleClick(event.id)} text="Пожертвувати" />}
-            </div>
-=======
 
 
 
@@ -71,14 +70,13 @@ function EventsListComponent(props) {
 
               </div>
               <div className={styles.button}>
-                {event.donated && <Button text="Пожертвувати" />}
+                {event.donated && <Button onClick={() =>handleClick(event.id,event.currentAmount,event.totalAmount)} text="Пожертвувати" />}
               </div>
             </div> 
->>>>>>> 5da614af6d9fe82295232c6e81fa764e96b953aa
           </div>
           {showModal  && (
             <Portal onClose={handleClosePopap}> 
-             <Donation selectedEventId={selectedEventId}/>       
+             <Donation selectedEventId={selectedEventId} currentAmount={selectedCurrentAmount} totalAmount={selectedTotalAmount}/>       
             </Portal>
           )}
         </div>

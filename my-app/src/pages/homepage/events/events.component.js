@@ -6,11 +6,8 @@ import styles from "./events.module.scss";
 import { convertToDate } from "../../../libs/helpers/convertToDate";
 import { getEvents, getEventsPending, getEventsError } from '../../../reducers/eventsReducer';
 import { connect } from 'react-redux'
-<<<<<<< HEAD
 import { Donate } from '../../../public-components/popap/donation/index';
-=======
 
->>>>>>> 5da614af6d9fe82295232c6e81fa764e96b953aa
 
 
 class EventComponent extends React.Component {
@@ -38,22 +35,19 @@ class EventComponent extends React.Component {
             </p>
           </div>
           <p>{firstEvent.description}</p>
-<<<<<<< HEAD
           <div className={styles.button} >
             {firstEvent.donated && <Button  text="Детальніше..." />}
-=======
           <div className={styles.button}>
             {firstEvent.donated &&
               <Button onClick={() => {
                 window.scrollTo(0, 0);
                 this.props.history.push(`/events`)}}
                 text="Переглянути всі" />}
->>>>>>> 5da614af6d9fe82295232c6e81fa764e96b953aa
           </div>
         </div>
       </div>
     </div>
-   
+    </div>
   );
 }
 }

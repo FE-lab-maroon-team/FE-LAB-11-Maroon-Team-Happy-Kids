@@ -1,12 +1,8 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
-import { Icon } from 'antd';
-import { Button } from '../button/index' 
-=======
->>>>>>> 5da614af6d9fe82295232c6e81fa764e96b953aa
+import { Icon } from 'antd'
 import  './portal.scss';
-import { from } from 'array-flatten';
+
 
 const portalRoot = document.getElementById('portal');
 
