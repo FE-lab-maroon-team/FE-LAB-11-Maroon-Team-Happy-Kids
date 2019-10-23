@@ -14,9 +14,6 @@ const HomepageComponent = (props) => {
     useEffect(() => {
         props.fetchEvents();
     }, [])
-    useEffect(() => {
-        props.fetchUsers();
-    }, [])
     return (
         <div>
             <Description />

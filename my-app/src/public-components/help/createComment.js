@@ -7,9 +7,7 @@ import moment from 'moment';
 import { fetchComments } from "../../actions";
 import { getComments, getCommentsPending, getCommentsError } from "../../reducers/commentsReducer";
 
-
 import 'antd/dist/antd.css';
-
 
 
 function CommentsListComponent(props) {
@@ -26,7 +24,7 @@ function CommentsListComponent(props) {
   return (
     <div>
       {`${comments.length} ${comments.length > 1 ? 'коментарі(в)' : 'коментар'}`}
-      {comments.map(comment => (
+      { comments.map(comment => (
 
         <Comment
           key={comment.id}
@@ -55,11 +53,13 @@ function CommentsListComponent(props) {
   )
 };
 
-const mapStateToProps = (state) => ({
-  comments: getComments(state),
-  pending: getCommentsPending(state),
-  error: getCommentsError(state)
-})
+const mapStateToProps = (state) => {
+  return {
+    comments: getComments(state),
+    pending: getCommentsPending(state),
+    error: getCommentsError(state)
+  }
+}
 
 const mapsDispatchToProps = {fetchComments};
 const Comments = connect(mapStateToProps, mapsDispatchToProps)(CommentsListComponent);
@@ -70,7 +70,7 @@ const { TextArea } = Input;
 const CommentList = ({ comments }) => (
   <List 
     dataSource={comments}
-    header={`${comments.length} ${comments.length > 1 ? 'коментарі' : 'коментар'}`}
+    header={` ${comments.length > 1 ? `Ваші ${comments.length} коментарі` : `Ваш коментар`}`}
     itemLayout="horizontal"
     renderItem={props => <Comment {...props} />}
   />
@@ -86,7 +86,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
         loading={submitting} 
         onClick={onSubmit} 
         type="primary" 
-        style={{backgroundColor: "#4E7C9C", border: "none"}}>
+        style={{backgroundColor: "#4E7C9C", border: "none", paddingRight: "10px"}}>
           Додайте коментар
       </Button>
     </Form.Item>
@@ -100,7 +100,7 @@ export class CreateComment extends Component {
     value: '',
   };
 
-    handleSubmit = (e) => {
+    handleSubmit = () => {
         if (!this.state.value) {
         return;
       }
@@ -127,18 +127,20 @@ export class CreateComment extends Component {
         });
       }, 1000);
     };
-    
+
     handleChange = e => {
       this.setState({
         value: e.target.value,
       });
     };
+    
+    
 
   render() {
     const { comments, submitting, value } = this.state;
     return (
       <div>
-        <Comment 
+        <Comment
             avatar={
               <Avatar
                 src={`https://api.adorable.io/avatars/40/${comments.id}.png`}
@@ -165,4 +167,6 @@ export class CreateComment extends Component {
 
 const mapDispatchToProps = {createComment};
 
-export default connect(null, mapDispatchToProps)(CreateComment)
+
+export default connect(null, mapDispatchToProps)(CreateComment);
+

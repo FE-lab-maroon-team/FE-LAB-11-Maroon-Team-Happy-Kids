@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import { Button } from "../../public-components/button";
 import { fetchEvents } from "../../actions";
 import { convertToDate } from "../../libs/helpers/convertToDate";
+import { Portal } from '../../public-components/portal/index';
+import { Donation } from '../../public-components/popap/donation/index';
 import { getEvents, getEventsPending, getEventsError } from "../../reducers/eventsReducer";
 import { connect } from "react-redux";
 
@@ -11,6 +13,20 @@ import styles from "./events.module.scss";
 
 
 function EventsListComponent(props) {
+  const [showModal , handleMessageClick] = useState(false);
+  const [ selectedEventId , setSelectId ] = useState('');
+  const [selectedTotalAmount, setTotalAmount] = useState(0);
+  const [selectedCurrentAmount, setCurrentAmount] = useState(0);
+
+  const handleClick = (eventId,eventCurrentSum,eventTotalSum) =>{
+    handleMessageClick(true);
+    setSelectId(eventId);
+    setTotalAmount(eventTotalSum);
+    setCurrentAmount(eventCurrentSum);
+  }
+  const handleClosePopap = () =>{
+    handleMessageClick(false);
+  }
   useEffect(() => {
     props.fetchEvents();
   }, []);
@@ -54,10 +70,15 @@ function EventsListComponent(props) {
 
               </div>
               <div className={styles.button}>
-                {event.donated && <Button text="Пожертвувати" />}
+                {event.donated && <Button onClick={() =>handleClick(event.id,event.currentAmount,event.totalAmount)} text="Пожертвувати" />}
               </div>
             </div> 
           </div>
+          {showModal  && (
+            <Portal onClose={handleClosePopap}> 
+             <Donation onClose={handleClosePopap} selectedEventId={selectedEventId} currentAmount={selectedCurrentAmount} totalAmount={selectedTotalAmount}/>       
+            </Portal>
+          )}
         </div>
       ))}
     </div>

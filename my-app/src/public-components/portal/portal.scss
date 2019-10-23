@@ -1,27 +1,21 @@
+$basic-color: #0c9dc9;
 .modal{
     position: fixed;
     z-index: 1;
-    width:400px;
-    height: 200px;
-    background-color: rgba(0,0,0,0.6);
-    color:blue;
-    top:32%;
-    left:42%;
-    right:25%;
+    width:30%;
+    background-color: rgba($color: (#EBEDEF), $alpha: 1);
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%,-50%)
   }
 .close-btn{
     position: absolute;
     right:0%;
-    background-color:#1A5276;
-    color:white;
-    font-size: 20px;
-    padding:10px 40px 10px 40px;
+    background-color:transparent;
     border:0;
-    border-radius: 25px;
-}
-.confirmation{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 15%;  
+    border-radius: 100%;
+    color:black;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
 }
