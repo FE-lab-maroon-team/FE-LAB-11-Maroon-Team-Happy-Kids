@@ -124,8 +124,8 @@ class MyWishesOption extends Component {
         {isPopupOpen && (
           <Portal onClose={() => hidePopup()}>
             <div className="confirmation">
-              <p>Ви дійсно хочете подарувати цей подарунок?</p>
-              <div>
+              <p style={{color: 'black', padding: '25px 25px 5px 25px'}}>Ви дійсно хочете подарувати цей подарунок?</p>
+              <div style={{padding: '10px'}}>
                 <Button text="Так" onClick={() => {
                     this.checkWishInDB();
                     hidePopup()
