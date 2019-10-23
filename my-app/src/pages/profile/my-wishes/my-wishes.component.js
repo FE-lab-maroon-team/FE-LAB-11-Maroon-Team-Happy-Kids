@@ -91,7 +91,6 @@ class MyWishesOption extends Component {
             }) => (
               <div
                 className={styles.col_4}
-                style={{ background: this.state.color }}
                 key={id}
               >
                 <img src={presentUrl} alt="Фото подарунка"></img>

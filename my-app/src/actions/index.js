@@ -26,3 +26,14 @@ export {
     hidePopup,
     showPopup
 } from './wishesAction';
+export{
+    CREATE_COMMENT_SUCCESS,
+    CREATE_COMMENT_ERROR,
+    LOAD_COMMENTS_SUCCESS,
+    LOAD_COMMENTS_REQUEST,
+    LOAD_COMMENTS_ERROR ,
+    createComment,
+    loadCommentsRequest,
+    loadCommentsSuccess, 
+    loadCommentsError,
+    fetchComments} from './commentsAction';
