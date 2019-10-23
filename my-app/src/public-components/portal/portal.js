@@ -1,6 +1,8 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Icon } from 'antd'
 import  './portal.scss';
+
 
 const portalRoot = document.getElementById('portal');
 
@@ -22,7 +24,7 @@ const portalRoot = document.getElementById('portal');
         const { children , onClose } = this.props;
          const content  = (
          <div  className='modal'>
-             <button className="close-btn" onClick={onClose}>Close</button>
+             <button className="close-btn" onClick={onClose}><Icon type="close" /></button>
              {children}
          </div>
          )
