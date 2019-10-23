@@ -35,8 +35,6 @@ class EventComponent extends React.Component {
             </p>
           </div>
           <p>{firstEvent.description}</p>
-          <div className={styles.button} >
-            {firstEvent.donated && <Button  text="Детальніше..." />}
           <div className={styles.button}>
             {firstEvent.donated &&
               <Button onClick={() => {
@@ -44,7 +42,6 @@ class EventComponent extends React.Component {
                 this.props.history.push(`/events`)}}
                 text="Переглянути всі" />}
           </div>
-        </div>
       </div>
     </div>
     </div>
