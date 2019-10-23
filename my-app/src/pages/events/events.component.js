@@ -76,7 +76,7 @@ function EventsListComponent(props) {
           </div>
           {showModal  && (
             <Portal onClose={handleClosePopap}> 
-             <Donation selectedEventId={selectedEventId} currentAmount={selectedCurrentAmount} totalAmount={selectedTotalAmount}/>       
+             <Donation onClose={handleClosePopap} selectedEventId={selectedEventId} currentAmount={selectedCurrentAmount} totalAmount={selectedTotalAmount}/>       
             </Portal>
           )}
         </div>
