@@ -9,8 +9,8 @@ import { fetchEvents, fetchUsers} from '../../actions';
 
 const HomepageComponent = (props) => {
     useEffect(() => {
-        props.fetchUsers();
-    }, [])
+        props.fetchUsers()
+    }, []);
     useEffect(() => {
         props.fetchEvents();
     }, [])

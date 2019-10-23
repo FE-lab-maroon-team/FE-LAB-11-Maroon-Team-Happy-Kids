@@ -10,5 +10,8 @@ export const rootReducer = combineReducers({
     items: usersReducer,
     user: usersReducer,
     auth: authReducer,
-    wishes: wishesReducer
+    wishes: wishesReducer,
+    comments: commentReducer,
+    firestore: firestoreReducer,
 });
+

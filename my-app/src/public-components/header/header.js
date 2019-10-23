@@ -20,8 +20,8 @@ const Header = (props) =>{
             <Link to='/'><div className="header_logo"></div></Link>
             <nav className="header_menu">
                 <ul className="header_menu__item">
-                    <li><Textlink path='/' name="Home"/></li>
-                    <li><Textlink path='/events' name="Events"/></li>
+                    <li><Textlink path='/' name="Домашня"/></li>
+                    <li><Textlink path='/events' name="Події"/></li>
                     {isAuthenticated.auth.isAuthorized ? userLink : guestLink}
                 </ul>
             </nav>

@@ -15,7 +15,6 @@ export const hidePopup = () => (dispatch)  => {
     })
 }
 
-
 export const checkWishInDB = (userId, selectedWish) => (dispatch) => {
     const docRef = db.collection("users").doc(userId);
     docRef

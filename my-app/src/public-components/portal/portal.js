@@ -1,6 +1,5 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from '../button/index' 
 import  './portal.scss';
 
 const portalRoot = document.getElementById('portal');

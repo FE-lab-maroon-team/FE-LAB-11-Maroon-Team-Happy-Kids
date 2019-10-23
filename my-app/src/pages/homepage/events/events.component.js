@@ -6,7 +6,7 @@ import styles from "./events.module.scss";
 import { convertToDate } from "../../../libs/helpers/convertToDate";
 import { getEvents, getEventsPending, getEventsError } from '../../../reducers/eventsReducer';
 import { connect } from 'react-redux'
-import { from } from "rxjs";
+
 
 
 class EventComponent extends React.Component {

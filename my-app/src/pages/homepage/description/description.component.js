@@ -8,7 +8,7 @@ class Description extends Component{
         return(
             <div>
                 <div className={styles.headerImage}>
-                    <img src={FamilyImage} alt='family photo'></img>
+                    <img src={FamilyImage} alt='family'></img>
                     <h1>Дитячий будинок "Надія"</h1>
                 </div>
                 <div className={styles.descriptionBlock}>

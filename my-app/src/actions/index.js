@@ -1,4 +1,9 @@
-export { loadEventsRequest, loadEventsSuccess, loadEventsError, fetchEvents } from './eventsAction';
+export { 
+    loadEventsRequest, 
+    loadEventsSuccess, 
+    loadEventsError, 
+    fetchEvents 
+    } from './eventsAction';
 export { 
     LOAD_USERS_SUCCESS,
     LOAD_USERS_REQUEST, 
