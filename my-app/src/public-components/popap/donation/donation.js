@@ -10,16 +10,15 @@ import { createDonate } from '../../../actions/donateAction'
  state = {
         donationName:'',
        donationDate:'',
-       currentAmount:'',
-       id:this.props.selectedEventId
+       currentAmount:0,
  }
+
 
  handleUserNameChange = evt =>{this.setState({
      ...this.state,
      donationName: evt.target.value
  })}
  handleUserSumChange = evt =>{
-     console.log(evt.target.value)
          this.setState({
              ...this.state,
              currentAmount: evt.target.value
@@ -29,16 +28,21 @@ import { createDonate } from '../../../actions/donateAction'
     ...this.state,
     donationDate: evt.target.value
 })}
+ 
   checkForValidInput = () =>{
-      if((+this.state.currentAmount + +this.props.currentAmount) > +this.props.totalAmount){
-         
+      let summ = +this.state.currentAmount + +this.props.currentAmount;
+      if(summ > +this.props.totalAmount){
           alert(`Йоу відвідувач успокойся! Сума не повинна перевищувати ${+this.props.totalAmount - +this.props.currentAmount} грн`);
-      }else if((+this.state.currentAmount+ +this.props.currentAmount) < +this.props.totalAmount){
+      }else if(summ < +this.props.totalAmount){
           alert('Молодець!');
-          this.props.createDonate(this.state);
+          this.props.createDonate({ ...this.state, 
+             id:this.props.selectedEventId,
+             currentAmount: summ
+        });
        
       }
     }
+
  handleSubmitValue = () =>{
     this.checkForValidInput();
     this.props.onClose();
@@ -66,7 +70,7 @@ import { createDonate } from '../../../actions/donateAction'
 }
 const mapDispatchToProps = (dispatch) =>{
     return {
-        createDonate: (project) => dispatch(createDonate(project))
+        createDonate: (payment) => dispatch(createDonate(payment))
     }
 }
 
