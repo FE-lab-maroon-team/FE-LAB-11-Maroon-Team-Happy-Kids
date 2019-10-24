@@ -28,8 +28,7 @@ export {
     UPDATE_WISHES_SUCCESS,
     UPDATE_WISHES_ERROR,
     updateWishesSuccess,
-    updateWishesError,
-    checkWishInDB
+    updateWishesError
 } from './wishesAction';
 export{
     CREATE_COMMENT_SUCCESS,

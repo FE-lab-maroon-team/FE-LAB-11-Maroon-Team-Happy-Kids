@@ -32,12 +32,12 @@ class MyWishesOption extends Component {
         docRef
             .get()
             .then((doc) => {
-                let wishesarr = doc.data().wishes;
-                wishesarr.forEach(obj => {
+                let wishesArr = doc.data().wishes;
+                wishesArr.forEach(obj => {
                     if (obj.hasOwnProperty("isActive")) {
                         if (obj.id === selectedWish) {
                             obj["isActive"] = false;
-                            this.updateWishInDB(wishesarr, userId);
+                            this.updateWishInDB(wishesArr, userId);
                         }
                     }
                 });
