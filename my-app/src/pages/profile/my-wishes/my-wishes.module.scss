@@ -13,11 +13,12 @@ $basic-color: #0c9dc9;
     margin: 25px 0;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: flex-start;
     .col_4 {
+      position: relative;
       width: 29.9%;
       display: flex;
       flex-direction: column;
+      background-color: $basic-color;
       margin: 5px 0;
       box-shadow: 0px 0px 20px $boxShadowMyWishesCol;
       img {
@@ -26,7 +27,7 @@ $basic-color: #0c9dc9;
       }
       .myWishesDetails {
         padding: 17px;
-        background-color: $basic-color;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -48,7 +49,7 @@ $basic-color: #0c9dc9;
           line-height: 24px;
         }
       }
-      .myWishesDescribe {
+      .myWishesDescription {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -58,13 +59,26 @@ $basic-color: #0c9dc9;
         p {
           padding: 15px 0;
         }
-        .button {
+        button {
+          &:disabled{
+            background-color: grey;
+          }
+        }
+        .buttonPresent {
           align-items: flex-end;
+          background-color: #1A5276;
+          color: white;
+          font-size: 20px;
+          padding: 10px 40px 10px 40px;
+          border: 0;
+          border-radius: 25px;
+          outline:none;
         }
       }
     }
   }
 }
+
 .noWishes {
   height: 300px;
   display: flex;

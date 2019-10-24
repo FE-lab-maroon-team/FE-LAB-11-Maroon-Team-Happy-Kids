@@ -4,7 +4,9 @@
     font-size: 20px;
     padding:10px 40px 10px 40px;
     border:0;
+    margin: 10px;
     border-radius: 25px;
+    outline: none;
 }
 .button:hover{
     background-color: #4e7c9c;
