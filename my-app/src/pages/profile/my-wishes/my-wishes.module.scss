@@ -37,7 +37,6 @@ $basic-color: #0c9dc9;
         }
         h3 {
           text-align: center;
-          padding: 25px 0;
         }
       }
       .subjectDetails {
@@ -54,7 +53,7 @@ $basic-color: #0c9dc9;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 15px 0;
+        padding: 0 0 15px 0;
         line-height: 24px;
         p {
           padding: 15px 0;
@@ -69,10 +68,13 @@ $basic-color: #0c9dc9;
           background-color: #1A5276;
           color: white;
           font-size: 20px;
+          position: absolute;
+          bottom: 10px;
           padding: 10px 40px 10px 40px;
           border: 0;
           border-radius: 25px;
           outline:none;
+          margin-bottom: 0;
         }
       }
     }

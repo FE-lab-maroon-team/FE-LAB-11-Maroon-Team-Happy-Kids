@@ -9,6 +9,7 @@ export const showPopup = ( selectedWishesId) => (dispatch) => {
         payload: selectedWishesId
     });
 }
+
 export const hidePopup = () => (dispatch)  => {
     dispatch({
         type: HIDE_POPUP

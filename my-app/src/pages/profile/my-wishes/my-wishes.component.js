@@ -109,9 +109,9 @@ class MyWishesOption extends Component {
                   <div className={styles.myWishesDescription}>
                     <p>{description}</p>
                     <button
-                      disabled={!isActive}
-                      onClick={() => showPopup(id)}
                       className={styles.buttonPresent}
+                      disabled={!isActive}
+                      onClick={() => showPopup(id)} 
                     >
                       Подарувати
                     </button>
