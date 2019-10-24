@@ -50,6 +50,9 @@ function EventsListComponent(props) {
               <p>
                 Де: <strong>{event.address}</strong>
               </p>
+              <p>
+                Необхідна сума: <strong>{event.totalAmount}</strong>
+              </p>
             </div>
             <p>{event.description}</p>
 
