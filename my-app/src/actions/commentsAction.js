@@ -10,10 +10,10 @@ export const LOAD_COMMENTS_ERROR = 'LOAD_COMMENTS_ERROR';
 
 
 export const createComment = (comment) => { 
-    return (dispatch, getState, {getFirebase, getFirestore}) => {
-      // make async call to database
-      const firestore = getFirestore();
-      firestore.collection('comments').add({
+    return (dispatch, getState, {getFirebase, getFirestore }) => {
+        // make async call to database
+        const firestore = getFirestore();
+        firestore.collection('comments').add({
         value: comment.value,
         id: `f${(~~(Math.random()*1e8)).toString(16)}`,
         createdAt: moment().format('LLLL'),
@@ -22,8 +22,10 @@ export const createComment = (comment) => {
       }).catch(err => {
         dispatch({ type: CREATE_COMMENT_ERROR }, err);
       });
+
     }
 };
+
 
 export function loadCommentsRequest() {
     return {
@@ -45,19 +47,51 @@ export function loadCommentsError(error) {
     }
 }
 
+
+
 export const fetchComments = () => (dispatch) => {
     dispatch(loadCommentsRequest());
     const allComments = db.collection("comments");
+    const observer = db.collection("comments");
     const commentsData = [];
+    const newCommentsData = [];
     allComments
         .get()
         .then(snapshot => {
             snapshot.forEach(doc => {
                 commentsData.push(doc.data());
             });
+            commentsData.sort(function(a, b) {
+                a = new Date(a.createdAt);
+                b = new Date(b.createdAt);
+                return a>b ? -1 : a<b ? 1 : 0;
+            })
             dispatch(loadCommentsSuccess(commentsData));
         })
         .catch(error => {
             dispatch(loadCommentsError(error));
         });
+
+
+    // adding listener to data changing in database for real-time rendering
+    observer
+            .onSnapshot(docSnapshot => {
+                docSnapshot.docChanges().forEach(change => {
+                    if (change.type === 'added') {
+                        newCommentsData.push(change.doc.data())
+                    }
+                    if (change.type === 'modified') {
+                        newCommentsData.push(change.doc.data())
+                    }
+                    if (change.type === 'removed') {
+                        newCommentsData.push(change.doc.data())
+                    }
+                });
+                newCommentsData.sort(function(a, b) {
+                    a = new Date(a.createdAt);
+                    b = new Date(b.createdAt);
+                    return a>b ? -1 : a<b ? 1 : 0;
+                })
+                dispatch(loadCommentsSuccess(newCommentsData));
+            });
 }

@@ -2,8 +2,9 @@ import { combineReducers } from 'redux';
 import { eventsReducer } from './eventsReducer';
 import { usersReducer } from './usersReducer'; 
 import{ authReducer} from './authReducer';
-import { wishesReducer } from './wishesReducer';
+import { donateReducer } from './donateReducer';
 import { commentReducer } from './commentsReducer';
+import { wishesReducer } from './wishesReducer';
 import { firestoreReducer } from 'redux-firestore';
 
 
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
     user: usersReducer,
     auth: authReducer,
     wishes: wishesReducer,
+    donate: donateReducer,
     comments: commentReducer,
     firestore: firestoreReducer,
 });

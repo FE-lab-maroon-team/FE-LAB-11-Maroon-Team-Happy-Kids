@@ -24,11 +24,7 @@ export {
     HIDE_POPUP,
     SHOW_POPUP,
     hidePopup,
-    showPopup,
-    UPDATE_WISHES_SUCCESS,
-    UPDATE_WISHES_ERROR,
-    updateWishesSuccess,
-    updateWishesError
+    showPopup
 } from './wishesAction';
 export{
     CREATE_COMMENT_SUCCESS,
